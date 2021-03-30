@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+LE SUE SCELTE
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "global/farmerchoices.css" %}">
+<script type="text/javascript" src="{% static "global/farmerchoice_1.js" %}"></script>
+<script type="text/javascript" src="{% static "global/farmerchoice_2.js" %}"></script>
+<script type="text/javascript" src="{% static "global/farmerchoice_3.js" %}"></script>
+
+<p> SCELTA 1</p>
+<div id = "full_div_3" style=" height: 420px;"></div>
+
+<p> SCELTA 2</p>
+<div id = "full_div_2" style=" height: 420px;" ></div>
+
+<p> SCELTA 3</p>
+<div id = "full_div" style=" height: 420px;" ></div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+let belief_farms = {{beliefs_3|json}};
+farmerchoices.mkview(belief_farms, "full_div", results = 1, show_submit = 1);
+</script>
+
+<script>
+let belief_farm = {{beliefs_2|json}};
+farmerchoice.mkview(belief_farm, "full_div_2", results = 1, show_submit = 1);
+</script>
+
+<script>
+let belief_farmer = {{beliefs|json}};
+farmerschoice.mkview(belief_farmer, "full_div_3", results = 1, show_submit = 1);
+</script>
+
+{% endblock %}

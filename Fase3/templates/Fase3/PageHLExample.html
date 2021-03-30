@@ -1,0 +1,110 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+
+<h1> Le Scelte </h1>
+
+<div class="w3-container border-top ">
+  <p></p>
+  <ul>
+  <li align = "justify"> Le verrà chiesto di effettuare delle scelte tra Opzione A e Opzione B. </li>
+    <p></p>
+  <li>Vi sono 3 Gruppi di Scelte.</li>
+    <P></P>
+  <li align = "justify"> Sotto è riportato un esempio della scelta che dovrete effettuare.</li>
+</ul>
+  </div>
+<p></p>
+
+
+     <table class="table" style="width:100%; border-color:#FF9900">
+<thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col" colspan="2" style="text-align:center">A</th>
+    <th scope="col" colspan="2" style="text-align:center">B</th>
+    <th scope="col"> </th>
+  </tr>
+</thead>
+  <thead style="font-size: 15px">
+  <tr>
+    <th scope="col"></th>
+    <th scope="col" colspan="1" style="text-align:center; width: 12%"> Quota €/ettaro IST </th>
+    <th scope="col" colspan="2" style="text-align:center"> ADERIRE ALLA COPERTURA MUTUALISTICA (RIMBORSO 70%) </th>
+    <th scope="col" colspan="2"  style="text-align:center">NON-ADERIRE ALLA COPERTURA MUTUALISTICA </th>
+    <th scope="col" style="text-align:center; width: 13%"> CLICCA PER SCEGLIERE</th>
+  </tr>
+  </thead>
+       <thead>
+  <tr style="font-size: 90%">
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b> Vi è una probabilità di 70/100 che</b> </th>
+    <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b>Vi è una probabilità di 30/100 che </b> </th>
+    <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b>Vi è una probabilità di 70/100 che </b> </th>
+    <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b>Vi è una probabilità di 30/100 che  </b></th>
+    <th colspan="1" scope="col" style="text-align:center;"></th>
+</tr>
+      </thead>
+<thead>
+  <tr style="font-size: 80%">
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > Il reddito nel 2022 sarà inferiore alla media di almeno -20%  </th>
+    <th scope="col" colspan="1" style="text-align:center;font-weight:normal"> Il reddito nel 2022 sarà superiore alla media di almeno +10% </th>
+    <th scope="col" colspan="1" style="text-align:center;font-weight:normal">Il reddito nel 2022 sarà inferiore alla media di almeno -20% </th>
+    <th scope="col" colspan="1"  style="text-align:center;font-weight:normal">Il reddito nel 2022 sarà superiore alla media di almeno +10% </th>
+        <th colspan="1" scope="col" style="text-align:center;"></th>
+</tr>
+</thead>
+<tbody>
+<!-- Row 4 -->
+  <tr style="background-color:#ffe0cc">
+    <th scope="row" >4</th>
+    <td style="text-align:center; horizontal align: middle"> 150€</td>
+    <td style="text-align:center"> €{{a4|safe}}  </td>
+    <td style="text-align:center">  €{{a12|safe}}</td>
+    <td style="text-align:center"> €{{b11|safe}}</td>
+    <td style="text-align:center"> €{{b12|safe}} </td>
+    <th colspan="1" scope="col" style="text-align:right; width:12%"> {{form.HL}} </td>
+
+  </tr>
+</tbody>
+</table>
+
+<p style="text-align: center; font-weight:bold"> Dopo aver effettuato la scelta cliccare su INVIA</p>
+
+
+
+        <div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+                  <span style="font-size:12pt">Invia</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+
+
+{% endblock %} -->
