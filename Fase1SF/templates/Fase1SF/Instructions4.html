@@ -1,0 +1,60 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h1>ISTRUZIONI</h1>
+<h3>RIPETERE LA SCELTA</h3>
+<p />
+<div class="w3-container border-top border-bottom">
+    <p></p>
+<ul style="align:justify">
+    <li> Dopo aver assegnato i gettoni avrete la possibilità di scegliere se ripetere la vostra scelta.</li>
+    <p />
+    <li> Scegliendo <b>SI</b> potrete ripetere la scelta e assegnare i gettoni in modo diverso.</li>
+    <p />
+    <li> Vi è data la possibilità di ripetere al massimo 2 volte la Scelta.</li>
+    <p />
+</ul>
+</div>
+<div class="w3-container border-bottom">
+    <p></p>
+   <ul>
+    <li>Dopo aver effettuato la/e vostra/e scelta/e queste vi verranno mostrate di nuovo.</li>
+    <p> </p>
+    <li><b>Se avrete effettuato più di 1 Scelta vi sarà chiesto di assegnare 100 palline tra le scelte compiute. </b></li>
+    <p> </p>
+    <li>Le palline servono a costruire una urna che rispecchia le vostre preferenze.</li>
+     <p> </p>
+    <li>Dall'urna verrà estratta una casualmente una pallina che determinerà quale tra le scelte da voi effettuate verrà usata per il pagamento.</li>
+</ul>
+<p style="color:red">ATTENZIONE:</p>
+    <ul>
+	<li> Il numero di palline che assegnerà alle scelte, dovrebbe rispecchiare il suo grado di preferenza per le scelte effettuate</li>
+    <p> </p>
+    <li>Ricordi che assegnando un numero maggiore di palline ad una scelta, vi saranno più probabilità che questa venga estratta per il pagamento.</li>
+</ul>
+</div>
+<p></p>
+
+<p />
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+{% endblock %}
