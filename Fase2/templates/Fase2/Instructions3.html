@@ -1,0 +1,47 @@
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>Istruzioni</h1>
+
+<div class="w3-container border-top border-bottom">
+  <h2> Fase 2 </h2>
+
+      <p>La Fase 2 prevede una serie di scelte tra due opzioni A e B. </p>
+      <p>Opzione A :</p>
+      <ul>
+        <li><b>ADERIRE</b> oggi (Gennaio 2022) alla copertura mutualistica annuale del Fondo IST</li>
+      </ul>
+      <p>Opzione B :</p>
+      <ul>
+        <li><b>NON-ADERIRE</b> oggi (Gennaio 2022) alla copertura mutualistica annuale del Fondo IST</li>
+      </ul>
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+{% endblock %}
