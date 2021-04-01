@@ -336,10 +336,7 @@ class FarmerChoices2(Page):
 
     def is_displayed(self):
         return self.player.rep_2 == 'NO'
-    def app_after_this_page(self, upcoming_apps):
-        if self.player.rep_2 == 'NO':
-            return 'Fase2'
-
+    
 class FarmerChoices3(Page):
     form_model = "player"
     form_fields = ['pref1', 'pref2','pref3']
