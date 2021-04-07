@@ -361,6 +361,10 @@ class FarmerChoices1(Page):
     def is_displayed(self):
         return self.player.rep_1 == 'NO'
 
+    def app_after_this_page(self, upcoming_apps):
+        if self.player.rep_1 == 'NO':
+            return 'Fase2SF'
+
 class FarmerChoices2(Page):
     form_model = "player"
 
@@ -377,15 +381,6 @@ class FarmerChoices2(Page):
         # The lottery data for this row
         beldat = self.participant.vars["beliefs_round_data"][0]
 
-        # Not really used anywhere
-        final_payment = {
-            "currency": beldat["currency"],
-            "amounts": [],
-            "when": [beldat["pay_by"]],
-            "choices": pay_choices,
-        }
-        self.participant.vars["beliefs_final_payment"] = final_payment
-        setattr(self.player, "final_payment", json.dumps(final_payment))
 
         beliefs_results = {
             "round_number": self.round_number,
@@ -397,7 +392,6 @@ class FarmerChoices2(Page):
             "task_number": 6,
             "pay_round": pay_round,
             "pay_choices": pay_choices,
-            "final_payment": final_payment,
         }
         beliefs_results_2 = {
             "round_number": self.round_number,
@@ -409,7 +403,6 @@ class FarmerChoices2(Page):
             "task_number": 6,
             "pay_round": pay_round_2,
             "pay_choices": pay_choices_2,
-            "final_payment": final_payment,
         }
 
         # Save this data for use in the final results page
@@ -511,6 +504,8 @@ class FarmerChoices3(Page):
         self.player.sum_token = sum([self.player.pref1, self.player.pref2, self.player.pref3])
         self.participant.vars["weights"] = [self.player.pref1, self.player.pref2, self.player.pref3]
 
+
+
 class Result1(Page):
     form_model  = "player"
 
@@ -565,6 +560,7 @@ class Result1(Page):
     def is_displayed(self):
         return self.player.rep_1 == "NO"
 
+
     def app_after_this_page(self, upcoming_apps):
         if self.player.rep_1 == 'NO':
             return 'Fase2SF'
@@ -575,7 +571,7 @@ class Result2(Page):
     def vars_for_template(self):
         weights = self.participant.vars["weights"]
         # The number of rounds
-        num_rounds = [0,1]
+        num_rounds = [0, 1]
         # Select a round at random for payment
         if "beliefs_pay_round" not in self.participant.vars:
             pay_round = choices(num_rounds, weights)
@@ -624,6 +620,7 @@ class Result2(Page):
     def is_displayed(self):
         return self.player.rep_2 == "NO"
 
+
     def app_after_this_page(self, upcoming_apps):
         if self.player.rep_2 == 'NO':
             return 'Fase2SF'
@@ -634,7 +631,7 @@ class Results(Page):
     def vars_for_template(self):
         weights = self.participant.vars["weights"]
         # The number of rounds
-        num_rounds = [0, 1, 2]
+        num_rounds = [0,1,2]
         # Select a round at random for payment
         if "beliefs_pay_round" not in self.participant.vars:
             pay_round = choices(num_rounds, weights)
@@ -682,6 +679,9 @@ class Results(Page):
 
     def is_displayed(self):
         return self.round_number == self.participant.vars["beliefs_num_rounds"] and self.player.rep_2 != 'NO'
+
+    def before_next_page(self):
+        self.participant.vars["w_round"]= self.participant.vars["beliefs_results"]["pay_round"]
 
 
 
