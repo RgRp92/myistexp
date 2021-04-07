@@ -1,5 +1,5 @@
 from otree.api import (
-    models, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+    models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
 )
 import _decimal
 author = 'RR'
@@ -35,6 +35,14 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
+    quiz = models.CharField(choices=[['0', '6.16'], ['1', '20.16'], ['2', '17.16']],
+                            widget=widgets.RadioSelectHorizontal,
+                            label='1. In base alla figura mostrata quale sarà il vostro guadagno se il reddito varierà del + 2%',
+                            blank=True, default="")
+    quiz2 = models.CharField(choices=[['1', '6.16'], ['0', '20.16'], ['2', '17.16']],
+                             widget=widgets.RadioSelectHorizontal,
+                             label='2.In base alla figura mostrata quale sarà il vostro guadagno se il reddito varierà del + 20%',
+                             blank=True, default="")
     labelset    = models.IntegerField(default = 0)
 
     final_payment = models.StringField()
