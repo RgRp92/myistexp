@@ -52,11 +52,11 @@ class Player(BasePlayer):
         label='4. Da quanti anni è coinvolto nella coltivazione delle mele?',
         widget=widgets.RadioSelect,
     )
-    q5 = models.IntegerField(min=1, max=100,
+    q5 = models.IntegerField(min=1,
                              label='5. A quanti ettari corrisponde la superfice agricola della sua azienda?'
                              )
     q6 = models.IntegerField(min=1, max=100,
-                             label='6.	Quanti ettari occupa la coltivazione a mele??'
+                             label='6.	Quanti ettari in percentuale occupa la coltivazione a mele? (max 100%)'
                              )
     q7 = models.StringField(
         choices=[['1', 'Alta val di Non, Val di Sole'],
@@ -82,6 +82,7 @@ class Player(BasePlayer):
     q9_g = models.BooleanField(blank=True, initial=False)
     q9_h = models.BooleanField(blank=True, initial=False)
     q9_i = models.BooleanField(blank=True, initial=False)
+    q9_j = models.BooleanField(blank=True, initial=False)
 
     q10_a1 = models.BooleanField(blank=True, initial=False)
     q10_a2 = models.BooleanField(blank=True, initial=False)
@@ -134,11 +135,11 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect)
 
 
-    q13 = models.IntegerField(label='13. Negli ultimi 3 anni, quale percentuale del suo reddito è derivata da mele?'
+    q13 = models.IntegerField(label='13. Negli ultimi 3 anni, quale percentuale del suo reddito è derivata da mele? (max 100%)'
                                     '', min=0, max=100)
 
-    q14 = models.IntegerField(label='14. Negli ultimi 3 anni, quanto hanno inciso i costi per la produzione di mele ad ettaro?'
-                                    '', min=0)
+    q14 = models.IntegerField(label='14. Negli ultimi 3 anni, quanto hanno inciso i costi per la produzione di mele ad ettaro?(max 100%)'
+                                    '', min=0, max=100)
 
     q15 = models.StringField(
         choices=[['SI', 'SI'], ['NO', 'NO'],['Non saprei','Non saprei']],

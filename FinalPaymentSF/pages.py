@@ -3,6 +3,19 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 import random
+class MyPage1(Page):
+
+
+    def vars_for_template(self):
+        return {
+        "winner": self.session.vars["winner"],
+        'app' : self.session.vars["app"],
+        'id':   self.session.vars['id']
+        }
+
+    def is_displayed(self):
+        return self.session.vars["winner"] != self.player.id_in_group
+
 class MyPage(Page):
 
 
@@ -13,6 +26,8 @@ class MyPage(Page):
         'id':   self.session.vars['id']
         }
 
+    def is_displayed(self):
+        return self.session.vars["winner"] == self.player.id_in_group
 
 class ResultsWaitPage(WaitPage):
     pass
@@ -76,4 +91,4 @@ class goodbye(Page):
         return self.session.vars["winner"] != self.player.id_in_group
 
 
-page_sequence = [MyPage, Results, Results2,Results3, goodbye]
+page_sequence = [MyPage1, MyPage, Results, Results2,Results3, goodbye]

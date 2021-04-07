@@ -13,6 +13,7 @@ LE SUE SCELTE
         	<p>Dopo aver assegnato le palline clicchi su AVANTI per procedere.</p>
 <p></p>
 </div>
+<link rel="stylesheet" href="{% static "global/empty2.css" %}">
 <link rel="stylesheet" href="{% static "global/farmerchoices.css" %}">
 <script type="text/javascript" src="{% static "global/farmerchoice_1.js" %}"></script>
 <script type="text/javascript" src="{% static "global/farmerchoice_2.js" %}"></script>
@@ -29,30 +30,44 @@ LE SUE SCELTE
             <td> <input class="pref_input" id="pref1" type="number" name="pref1" min="0" max="100" style="width: 50%; margin-left: 25%"> </td>
             <td> <input class="pref_input" id="pref2" type="number" name="pref2" min="0" max="100" style="width: 50%; margin-left: 25%"> </td>
             <td> <input class="pref_input" id="pref3" type="number" name="pref3" min="0" max="100" style="width: 50%; margin-left: 25%"> </td>
-            <td> <span id="sum_token" max="100" style="width: 50%; margin-left: 37%" ></span> su 100</td>
+            <td> <span id="sum_token" name="sum_token" max="100" style="width: 50%; margin-left: 37%" ></span> su 100</td>
         </tr>
     </table>
-<script>window.onload = init_sum_token();
 
-function init_sum_token(){
-	sum_token =  document.getElementById("sum_token");
-	pref1 = document.getElementById("pref1");
-	pref2 = document.getElementById("pref2");
-	pref3 = document.getElementById("pref3");
+<div id="error" class="hide"><b>La somma di gettoni non può essere maggiore di 100</b></div>
 
-  document.querySelectorAll('.pref_input').forEach(item => {
-    item.addEventListener('change', event => {
-    	sum_prefs = get_input_value(pref1) + get_input_value(pref2) + get_input_value(pref3);
-  		sum_token.innerHTML = parseFloat(sum_prefs);
-    })
-  })
+<script>window.onload = init_average();
+function init_average() {
+  avginc = document.getElementById("avginc");
+  pref1 = document.getElementById("pref1");
+  pref2 = document.getElementById("pref2");
+  pref3 = document.getElementById("pref3");
+
+  document.querySelectorAll(".pref_input").forEach((item) => {
+    item.addEventListener("change", (event) => {
+      sum_prefs =
+        get_input_value(pref1) +
+        get_input_value(pref2) +
+        get_input_value(pref3);
+      let sum = parseFloat(sum_prefs);
+      if (sum > 100) {
+        sum = 100;
+        document.getElementById("error").className = "show";
+      } else {
+        document.getElementById("error").className = "hide";
+      }
+      sum_token.innerHTML = sum;
+    });
+  });
 }
-function get_input_value(input){
-	if(input.value == ''){
-  	return 0;
+function get_input_value(input) {
+  if (input.value == "") {
+    return 0;
+  } else {
+    return parseFloat(input.value);
   }
-  else {
-  	return parseFloat(input.value);
+  if (input.value >= 100) {
+    return "La somma di gettoni non può essere maggiore di 100";
   }
 }
 </script>

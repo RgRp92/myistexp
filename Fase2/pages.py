@@ -27,11 +27,14 @@ class ISTMELE3(Page):
 class ISTMELE4(Page):
     form_model = 'player'
 
+class Payment(Page):
+    form_model = 'player'
+class Payment2(Page):
+    form_model = 'player'
 
 class PageHLExample(Page):
 # which forms are needed from class player
     form_model = 'player'
-    form_fields = ['HL',]
 
     # values that are to be displayed (dictionary)
     def vars_for_template(self):
@@ -41,7 +44,6 @@ class PageHLExample(Page):
             'a12': Constants.a12,
             'b11': Constants.b11,
             'b12': Constants.b12,
-
         }
 
     # before moving to next page, compute payoffs (avoids that with refreshing payoffs are recomputed again)
@@ -49,6 +51,52 @@ class PageHLExample(Page):
         # built-in method
         self.player.set_payoff_HL()# see in models in Player class
 
+class PageHLExample1(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'a4': Constants.a4,
+            'a12': Constants.a12,
+        }
+
+class PageHLExample2(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.b11,
+            'b12': Constants.b12,
+        }
+class PageHLExample3(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.b11,
+            'b12': Constants.b12,
+        }
+class PageHLExample3a(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.b11,
+            'b12': Constants.b12,
+        }
+class PageHLExample3b(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.b11,
+            'b12': Constants.b12,
+        }
+
+class Instructions3(Page):
+    form_model = 'player'
+
+class MyWaitPage(Page):
+    form_model = 'player'
+
+    def before_next_page(self):
+        # built-in method
+        self.player.set_payoff_HL()# see in models in Player class
 
 class PageHL(Page):
 # which forms are needed from class player
@@ -128,8 +176,16 @@ page_sequence = [
     ISTMELE3,
     ISTMELE4,
     Instructions,
-    Instructions1,
     Instructions2,
     PageHLExample,
+    Payment,
+    Payment2,
+    PageHLExample1,
+    PageHLExample2,
+    PageHLExample3,
+    PageHLExample3a,
+    PageHLExample3b,
+    Instructions3,
+    MyWaitPage,
     PageHL,
 ]

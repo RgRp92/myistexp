@@ -52,19 +52,19 @@ SESSION_CONFIGS = [
     dict(
         name='Intro',
         display_name="Intro",
-        num_demo_participants=1,
+        num_demo_participants=2,
         app_sequence=['Intro']
      ),
     dict(
         name='FinalPayment',
         display_name="FinalPayment",
-        num_demo_participants=2,
+        num_demo_participants=5,
         app_sequence=['FinalPayment']
      ),
     dict(
         name='FinalPaymentSF',
         display_name="FinalPaymentSF",
-        num_demo_participants=2,
+        num_demo_participants=10,
         app_sequence=['FinalPaymentSF']
      ),
 ]

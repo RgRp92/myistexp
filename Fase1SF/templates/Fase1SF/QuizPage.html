@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<h2> La sua scelta: ESEMPIO 2</h2>
+
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static "global/empty.css" %}">
+<div class="w3-container border-top border-bottom">
+	<p></p>
+	<p>Per controllare se avete compreso il funzionamento della scelta, vi chiediamo di rispondere al seguente quiz </p>
+	{%formfields%}
+	<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Invia</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+		<img src="{%static 'Fase1/example2.jpg' %}"  align="middle" width="100%"/>
+
+</div>
+
+
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+{% endblock %}

@@ -14,7 +14,7 @@ class AgriAct(Page):
         form_model = 'player'
         form_fields = ['q4', 'q5', 'q6', 'q7',
                        'q8_a', 'q8_b', 'q8_c',
-                       'q9_a', 'q9_b', 'q9_c', 'q9_d', 'q9_e','q9_f','q9_g','q9_h','q9_i',
+                       'q9_a', 'q9_b', 'q9_c', 'q9_d', 'q9_e','q9_f','q9_g','q9_h','q9_i','q9_j',
                        'q10_a1','q10_a2','q10_a3','q10_a4','q10_a5',
                        'q10_b1','q10_b2','q10_b3','q10_b4','q10_b5',
                        'q10_c1','q10_c2','q10_c3','q10_c4','q10_c5',

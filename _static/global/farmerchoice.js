@@ -111,7 +111,7 @@ let set_token_allocations = function(bin, beldat) {
 		$("#bar_amt" + i).html(aval);
 	}
 	// The number of tokens allocated to this bin
-	$("#prob" + bin).html(this_bin + " token" + pluralizer(this_bin));
+	$("#prob" + bin).html(this_bin + " gettoni");
 	// The number of non_assegnati tokens
 	non_assegnati = tokens - this_bin - other_bin;
 	if (non_assegnati == 0) {

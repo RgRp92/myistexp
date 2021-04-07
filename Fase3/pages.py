@@ -24,7 +24,6 @@ class Instructions4(Page):
 class PageHLExample(Page):
 # which forms are needed from class player
     form_model = 'player'
-    form_fields = ['rHL',]
 
     # values that are to be displayed (dictionary)
     def vars_for_template(self):
@@ -42,6 +41,9 @@ class PageHLExample(Page):
         # built-in method
         self.player.set_payoff_rHL()# see in models in Player class
 
+
+class MyWaitPage(Page):
+    form_model = 'player'
 
 class PageHL(Page):
 # which forms are needed from class player
@@ -123,5 +125,6 @@ page_sequence = [
                     Instructions2,
                     Instructions4,
                     PageHLExample,
+                    MyWaitPage,
                     PageHL,
 ]

@@ -144,11 +144,39 @@ class TaskPageExample3(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+class QuizPage(Page):
+    form_model = 'player'
+    form_fields = ['quiz','quiz2']
+
+    def quiz_error_message(self, value):
+        if value != '1':
+            return 'La risposta non è corretta. La preghiamo di correggere la sua risposta.'
+        else:
+            'La risposta  è corretta'
+
+    def quiz2_error_message(self, value):
+        if value != '1':
+            return 'La risposta non è corretta. La preghiamo di correggere la sua risposta.'
+        else:
+            pass
+
+
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
 class Instructions3(Page):
     def is_displayed(self):
         return self.round_number == 1
 
 class Instructions4(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Instructions5(Page):
     def is_displayed(self):
         return self.round_number == 1
 
@@ -168,9 +196,49 @@ class TaskPageExample5(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class TaskPageExample6(Page):
+class TaskPageExample5b(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class TaskPageExample5c(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class TaskPageExample5d(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class TaskPageExample6(Page):
+    def vars_for_template(self):
+        # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class TaskPageExample6b(Page):
+    def vars_for_template(self):
+        # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class TaskPageExample6c(Page):
+    def vars_for_template(self):
+        # Set the belief data for the participant
         set_beliefs_data(self)
 
     def is_displayed(self):
@@ -240,7 +308,6 @@ class Repeat1(Page):
 
     def is_displayed(self):
         return self.round_number == round(1)
-
 
 class Repeat2(Page):
     form_model = "player"
@@ -359,7 +426,6 @@ class FarmerChoices2(Page):
 
     def is_displayed(self):
         return self.player.rep_2 == 'NO'
-
 
 class FarmerChoices3(Page):
     form_model = "player"
@@ -623,14 +689,21 @@ page_sequence = [
     TitlePage,
     Intro,
     Instructions2,
-    TaskPageExample,
     TaskPageExample2,
     TaskPageExample3,
+    QuizPage,
+    TaskPageExample,
     Instructions3,
     Instructions4,
+    Instructions5,
     TaskPageExample4,
     TaskPageExample5,
+    TaskPageExample5b,
+    TaskPageExample5c,
+    TaskPageExample5d,
     TaskPageExample6,
+    TaskPageExample6b,
+    TaskPageExample6c,
     MyWaitPage,
     FarmerChoice,
     Repeat1,
