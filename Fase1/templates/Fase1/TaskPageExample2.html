@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<h2> La sua scelta: ESEMPIO 1 </h2>
+
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static "global/empty.css" %}">
+<div class="w3-container border-top border-bottom">
+	<p></p>
+		<img src="{%static 'Fase1/example1.jpg' %}"  align="middle" width="100%"/>
+<ul>
+	<li> Se ad esempio è certo che il reddito ad ettaro da mele nel 2022 varierà rispetto alla media tra +1% e +10%,
+	Allora vorrà assegnare buona parte dei gettoni all'intervallo +1% - +10%. </li>
+	<p></p>
+	<li> Potrebbe assegnare 100 gettoni a questo intervallo. </li>
+	<p></p>
+	<p> <b> Dopo aver assegnato i gettoni: </b> </p>
+	<li> Se il reddito/ettaro alla fine del 2022 sarà variato del +7%, allora i suoi guadagni saranno € 25 </li>
+	<p></p>
+	 <li>Invece se il reddito/ettaro alla fine del 2022 sarò variato del +13% i suoi guadagni saranno € 0</li>
+</ul>
+</div>
+
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+{% endblock %}
