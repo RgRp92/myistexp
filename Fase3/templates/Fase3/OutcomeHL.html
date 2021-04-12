@@ -9,7 +9,7 @@
 
 <div class="w3-container border-top ">
 	<p></p>
-		<h5> <b>La Situazione #{{rrow}}</b> è stata estratta per il pagamento.</h5>
+		<h5> <b>La Situazione #{{rrow}}</b> del <b>Gruppo#{{rHL_series}}</b> è stata estratta per il pagamento.</h5>
 <p></p>
 </div>
      <table class="table" style="width:100%">
@@ -32,8 +32,8 @@
 			<th scope="row">{{rrow}}</th>
 			<td style="text-align:center"> €{{ra_value|safe}} </td>
 			<td style="text-align:center"> €{{raa_value|safe}}</td>
-			<td style="text-align:center"> €{{Constants.rb11|safe}}</td>
-			<td style="text-align:center"> €{{Constants.rb12|safe}} </td>
+			<td style="text-align:center"> €{{rb11_value|safe}}</td>
+			<td style="text-align:center"> €{{rb12_value|safe}} </td>
 		</tr>
 		</table>
 <!-- The lottery chosen -->
@@ -49,9 +49,9 @@
 <p> Si è verificato lo scenario:
 {% if rpayoff_HL == raa_value %}
 		<b> Aumento di Reddito</b>
-		{% elif rpayoff_HL == Constants.rb11 %}
+		{% elif rpayoff_HL == rb11_value %}
 		<b> Calo di Reddito</b>
-		{% elif rpayoff_HL == Constants.rb12 %}
+		{% elif rpayoff_HL == rb12_value %}
 		<b> Aumento di Reddito</b>
 		{% else %}
 		<b> Calo di Reddito</b>

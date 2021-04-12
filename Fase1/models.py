@@ -31,7 +31,7 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    quiz = models.CharField(choices=[['0', '6.16'],['2', '20.16'],['1','17.16']],
+    quiz = models.CharField(choices=[['0', '6.16'],['1', '20.16'],['2','17.16']],
                                widget= widgets.RadioSelectHorizontal,
                                label='1. In base alla figura mostrata quale sarà il vostro guadagno se il reddito varierà del + 2%',
                               blank=True,default = "")

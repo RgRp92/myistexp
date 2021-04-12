@@ -29,7 +29,7 @@ SESSION_CONFIGS = [
         name='Fase2',
         display_name="Fase2",
         num_demo_participants=1,
-        app_sequence=['Fase2']
+        app_sequence=['Fase2','FinalPayment']
      ),
     dict(
         name='Fase2SF',
@@ -41,7 +41,7 @@ SESSION_CONFIGS = [
         name='Fase3',
         display_name="Fase3",
         num_demo_participants=1,
-        app_sequence=['Fase3']
+        app_sequence=['Fase3',],
      ),
     dict(
         name='Fase4',

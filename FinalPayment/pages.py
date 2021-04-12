@@ -50,6 +50,7 @@ class Results2(Page):
     def vars_for_template(self):
         # retrieve values from participant.vars and store them in a dictionary
         return {
+            'HL_series':  self.participant.vars['HL_series'],
             'payoff_HL': self.player.participant.vars['payoff_HL'],  # payoff
             'row': self.player.participant.vars['HL_row'],  # randomly chosen row
             'value': self.participant.vars['HL_random'],  # randomly chosen value to define outcome
@@ -75,6 +76,7 @@ class Results3(Page):
     def vars_for_template(self):
         # retrieve values from participant.vars and store them in a dictionary
         return {
+            'rHL_series': self.participant.vars['rHL_series'],
             'rpayoff_HL': self.player.participant.vars['rpayoff_HL'],  # payoff
             'rrow': self.player.participant.vars['rHL_row'],  # randomly chosen row
             'rvalue': self.participant.vars['rHL_random'],  # randomly chosen value to define outcome

@@ -1,0 +1,138 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+
+<h1>Le sue Scelte </h1>
+<h3>Gruppo 3</h3>
+  <h5>Prego scelga tra Opzione A e Opzione B nelle seguenti Situazioni</h5>
+<p></p>
+<p></p>
+<table class="table table-hover" style="width : 100%">
+<thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col" colspan="2" style="text-align:center">A</th>
+    <th scope="col" colspan="2"  style="text-align:center">B</th>
+    <th scope="col"></th>
+  </tr>
+</thead>
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col" colspan="1" style="text-align:center; width: 15%"> Quota €/ettaro IST </th>
+    <th scope="col" colspan="2" style="text-align:center"> ADERIRE ALLA COPERTURA MUTUALISTICA (RIMBORSO 70%) </th>
+    <th scope="col" colspan="2"  style="text-align:center">NON-ADERIRE ALLA COPERTURA MUTUALISTICA </th>
+    <th scope="col" style="text-align:center"> CLICCA PER SCEGLIERE</th>
+  </tr>
+  </th>
+  </tr>
+  </thead>
+  </tr>
+</tr>
+</thead>
+  <thead>
+  <tr style="font-size: 90%">
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > Il reddito nel 2022 sarà inferiore alla media di almeno -20%  </th>
+    <th scope="col" colspan="1" style="text-align:center;font-weight:normal"> Il reddito nel 2022 sarà superiore alla media di almeno +10% </th>
+    <th scope="col" colspan="1" style="text-align:center;font-weight:normal">Il reddito nel 2022 sarà inferiore alla media di almeno -20% </th>
+    <th scope="col" colspan="1"  style="text-align:center;font-weight:normal">Il reddito nel 2022 sarà superiore alla media di almeno +10% </th>
+    <th colspan="1" scope="col" style="text-align:center;"></th>
+</tr>
+      </thead>
+<tbody>
+<!-- Row 1 -->
+  <tr>
+    <th scope="row">1</th>
+    <td style="text-align:center; horizontal align: middle"> 500€</td>
+    <td style="text-align:center; horizontal align: middle"> €{{s3_a1_1|safe}}  </td>
+    <td style="text-align:center">  €{{s3_a2_1|safe}}</td>
+    <td style="text-align:center"> €{{s3_b1|safe}}</td>
+    <td style="text-align:center"> €{{s3_b2|safe}} </td>
+        <td style="font-weight: bold; text-align: center" width="130px">{{ form.s3_HL_1 }}</td>
+
+  </tr>
+<!-- Row 2 -->
+  <tr>
+    <th scope="row">2</th>
+    <td style="text-align:center; horizontal align: middle"> 400€</td>
+    <td style="text-align:center; horizontal align: middle"> €{{s3_a1_2|safe}}  </td>
+    <td style="text-align:center">  €{{s3_a2_2|safe}}</td>
+    <td style="text-align:center"> €{{s3_b1|safe}}</td>
+    <td style="text-align:center"> €{{s3_b2|safe}} </td>
+        <td style="font-weight: bold; text-align: center" width="130px">{{ form.s3_HL_2 }}</td>
+
+  </tr>
+<!-- Row 3 -->
+  <tr>
+    <th scope="row">3</th>
+    <td style="text-align:center; horizontal align: middle"> 350€</td>
+    <td style="text-align:center; horizontal align: middle"> €{{s3_a1_3|safe}}  </td>
+    <td style="text-align:center">  €{{s3_a2_3|safe}}</td>
+    <td style="text-align:center"> €{{s3_b1|safe}}</td>
+    <td style="text-align:center"> €{{s3_b2|safe}} </td>
+        <td style="font-weight: bold; text-align: center" width="130px">{{ form.s3_HL_3 }}</td>
+
+  </tr>
+<!-- Row 4 -->
+  <tr>
+    <th scope="row">4</th>
+    <td style="text-align:center; horizontal align: middle"> 300€</td>
+    <td style="text-align:center; horizontal align: middle"> €{{s3_a1_4|safe}}  </td>
+    <td style="text-align:center">  €{{s3_a2_4|safe}}</td>
+    <td style="text-align:center"> €{{s3_b1|safe}}</td>
+    <td style="text-align:center"> €{{s3_b2|safe}} </td>
+        <td style="font-weight: bold; text-align: center" width="130px">{{ form.s3_HL_4 }}</td>
+
+  </tr>
+<!-- Row 5 -->
+  <tr>
+    <th scope="row">5</th>
+    <td style="text-align:center; horizontal align: middle"> 250€</td>
+   <td style="text-align:center; horizontal align: middle"> €{{s3_a1_5|safe}}  </td>
+    <td style="text-align:center">  €{{s3_a2_5|safe}}</td>
+    <td style="text-align:center"> €{{s3_b1|safe}}</td>
+    <td style="text-align:center"> €{{s3_b2|safe}} </td>
+        <td style="font-weight: bold; text-align: center" width="130px">{{ form.s3_HL_5 }}</td>
+
+  </tr>
+
+  </tr>
+
+</tbody>
+</table>
+
+
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+
+
+{% endblock %} -->
