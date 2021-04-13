@@ -1,0 +1,114 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+<h1> I suoi guadagni </h1>
+
+<div class="w3-container border-top ">
+	<p></p>
+		<h5> <b>La Situazione #{{rrow}}</b> del <b>Gruppo#{{rHL_series}}</b> è stata estratta per il pagamento.</h5>
+<p></p>
+</div>
+     <table class="table" style="width:100%">
+		<thead>
+  		<tr>
+			<th scope="col"></th>
+    		<th scope="col"></th>
+			<th scope="col" colspan="2"  style="text-align:center">A</th>
+			<th scope="col" colspan="2"  style="text-align:center">B</th>
+  		</tr>
+		</thead>
+		<thead>
+		<tr style="horizontal align: middle">
+			 <th scope="col">#</th>
+			 <th scope="col" colspan="1" style="text-align:center; width: 14%"> Quota €/ettaro IST </th>
+   			 <th scope="col" colspan="2"  style="text-align:center; width:43%"> ADERIRE ALLA COPERTURA MUTUALISTICA (RIMBORSO 70%) </th>
+   			 <th scope="col" colspan="2"  style="text-align:center; width:43%; horizontal align: top">NON-ADERIRE ALLA COPERTURA MUTUALISTICA</th>
+ 	 	</tr>
+		</thead>
+		 <thead>
+		 <tr style="font-size: 90%">
+			 <th scope="col"></th>
+			 <th scope="col"></th>
+			 <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b> Vi è una probabilità di {{prb1}}/100 che</b> </th>
+			 <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b>Vi è una probabilità di {{prb2}}/100 che </b> </th>
+			 <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b>Vi è una probabilità di {{prb1}}/100 che </b> </th>
+			 <th colspan="1" scope="col" style="text-align:center;font-weight:normal" > <b>Vi è una probabilità di {{prb2}}/100 che  </b></th>
+		 </tr>
+		 </thead>
+		 <tr style="font-size: 90%">
+			 <th scope="col"></th>
+			 <th scope="col"></th>
+			 <th scope="col" colspan="1" style="text-align:center;font-weight:normal" > Il reddito nel 2022 sarà inferiore alla media di almeno {{var1}}%  </th>
+			 <th scope="col" colspan="1" style="text-align:center;font-weight:normal"> Il reddito nel 2022 sarà superiore alla media di almeno {{var2}}% </th>
+			 <th scope="col" colspan="1" style="text-align:center;font-weight:normal">Il reddito nel 2022 sarà inferiore alla media di almeno {{var1}}%</th>
+			 <th scope="col" colspan="1" style="text-align:center;font-weight:normal">Il reddito nel 2022 sarà superiore alla media di almeno {{var2}}% </th>
+		 </tr>
+		 <tr>
+			 <th>{{rrow}}</th>
+			 <th style="text-align:center;font-weight:normal; horizontal align: middle"> €{{ist_value}}</th>
+			 <th style="text-align:center;font-weight:normal"> €{{ra_value|safe}} </th>
+			 <th style="text-align:center;font-weight:normal"> €{{raa_value|safe}}</th>
+			 <th style="text-align:center;font-weight:normal"> €{{rb11_value|safe}}</th>
+			 <th style="text-align:center;font-weight:normal"> €{{rb12_value|safe}}</th>
+		</tr>
+		</table>
+<!-- The lottery chosen -->
+	<div class="w3-container border-top ">
+		<p></p>
+		<p>Hai scelto
+		{% if rchoice == 1 %}
+    <b>Opzione A.</b>
+		{% else %}
+    <b>Opzione B.</b>
+		{% endif %}
+</p>
+<p> Si è verificato lo Scenario
+	{% if rHL_series == 3%}
+		{% if rpayoff_HL == raa_value %}
+		<b>2 : Calo di Reddito</b>
+		{% elif rpayoff_HL == rb11_value %}
+		<b>1 : Calo di Reddito</b>
+		{% elif rpayoff_HL == rb12_value %}
+		<b>2 : Calo di Reddito</b>
+		{% else %}
+		<b>1 : Calo di Reddito</b>
+		{% endif %}
+	{% else %}
+		{% if rpayoff_HL == raa_value %}
+		<b>2 : Aumento di Reddito</b>
+		{% elif rpayoff_HL == rb11_value %}
+		<b>1 : Calo di Reddito</b>
+		{% elif rpayoff_HL == rb12_value %}
+		<b>2 : Aumento di Reddito</b>
+		{% else %}
+		<b>1 : Calo di Reddito</b>
+		{% endif %}
+	{% endif %}
+</p>
+<p> Quindi, il suo guadagno è di Euro <b>{{rpayoff_HL|safe}}</b></p>
+</div>
+
+
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+
+{% endblock %}
