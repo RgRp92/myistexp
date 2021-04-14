@@ -35,12 +35,22 @@ class ISTsurvey(Page):
                    'q19_a','q19_b','q19_c','q19_d','q19_e',
                    'q20','q21']
 
+class LikertScaleQ(Page):
+    form_model = 'player'
+    form_fields = ['qc1','qc2','qc3','qc4',
+                   'qt1','qt2','qt3','qt4','qt5']
+
+class LikertScaleQ1(Page):
+    form_model = 'player'
+    form_fields = ['qh1','qh2','qh3',
+                   'qs1','qs2','qs3','qs4']
+    
 class ResultsWaitPage(WaitPage):
     pass
 
 
 class Results(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['iban']
 
-
-page_sequence = [TitlePage,Demographics, AgriAct, AgriAct2, ISTsurvey, Results]
+page_sequence = [TitlePage,Demographics, AgriAct, AgriAct2, ISTsurvey, LikertScaleQ, LikertScaleQ1, Results]

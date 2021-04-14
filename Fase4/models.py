@@ -184,3 +184,86 @@ class Player(BasePlayer):
                                                                                     'Non dipendano dal Trigger Event']],
         label='21. Preferirebbe che le richieste di risarcimento al Fondo IST Mele:',
         widget=widgets.RadioSelect )
+
+    iban = models.StringField(label='Prego inserisca il proprio codice IBAN')
+
+    qc1 = models.StringField(
+        choices=[['1',''], ['2',''],['3',''],['4',''],['5','']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qc2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qc3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qc4 = models.StringField(
+        choices=[['1',''], ['2',''],['3',''],['4',''],['5','']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt1 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt4 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt5 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qh1 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qh3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qh2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs1 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs4 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
