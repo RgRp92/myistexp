@@ -81,6 +81,21 @@ class Instructions2(Page):
 
     def is_displayed(self):
         return self.round_number == 1
+class Instructions2b(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Instructions2c(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
 
 class TaskPageExample(Page):
     def vars_for_template(self):
@@ -135,8 +150,22 @@ class TaskPageExample2(Page):
 
     def is_displayed(self):
         return self.round_number == 1
+class TaskPageExample2b(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
 
 class TaskPageExample3(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+class TaskPageExample3b(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -213,6 +242,13 @@ class TaskPageExample5c(Page):
         return self.round_number == 1
 
 class TaskPageExample5d(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+class TaskPageExample5e(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -729,8 +765,12 @@ page_sequence = [
     TitlePage,
     Intro,
     Instructions2,
+    Instructions2b,
+    Instructions2c,
     TaskPageExample2,
+    TaskPageExample2b,
     TaskPageExample3,
+    TaskPageExample3b,
     QuizPage,
     TaskPageExample,
     Instructions3,
@@ -739,8 +779,9 @@ page_sequence = [
     TaskPageExample4,
     TaskPageExample5,
     TaskPageExample5b,
-    TaskPageExample5c,
     TaskPageExample5d,
+    TaskPageExample5c,
+    TaskPageExample5e,
     TaskPageExample6,
     TaskPageExample6b,
     TaskPageExample6c,

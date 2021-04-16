@@ -32,23 +32,23 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    q1 = models.IntegerField(label='1. Età', min=18, max=125)
+    q1 = models.IntegerField(label='1. Anno di nascita', min=1900, max=2012)
     q2 = models.StringField(
-        choices=[['M', 'M'], ['F', 'F']],
+        choices=[['1', 'M'], ['2', 'F']],
         label='2. Genere',
         widget=widgets.RadioSelect,
     )
     q3 = models.StringField(
-        choices=[['Scuola elementare', 'Scuola elementare'], ['Diploma scuola superiore', 'Diploma scuola superiore'],
-                 ['Laurea 3 anni', 'Laurea 3 anni'], ['Laurea 5 anni', 'Laurea 5 anni'], ['Master', 'Master'],
-                 ['Dottorato', 'Dottorato']],
+        choices=[['1', 'Scuola elementare'], ['2', 'Diploma scuola superiore'],
+                 ['3', 'Laurea 3 anni'], ['4', 'Laurea 5 anni'], ['5', 'Master'],
+                 ['6', 'Dottorato']],
         label='3. Titolo di studio',
         widget=widgets.RadioSelect,
     )
     q4 = models.StringField(
-        choices=[['Fino a 5 anni', 'Fino a 5 anni'], ['Da 5 a 9 anni', 'Da 5 a 9 anni'],
-                 ['Da 10 a 20 anni', 'Da 10 a 20 anni'],
-                 ['Più di 20 anni', 'Più di 20 anni']],
+        choices=[['1', 'Fino a 5 anni'], ['2', 'Da 5 a 9 anni'],
+                 ['3', 'Da 10 a 20 anni'],
+                 ['4', 'Più di 20 anni']],
         label='4. Da quanti anni è coinvolto nella coltivazione delle mele?',
         widget=widgets.RadioSelect,
     )
@@ -121,16 +121,16 @@ class Player(BasePlayer):
     q10_f5 = models.BooleanField(blank=True, initial=False)
 
     q11 = models.StringField(
-        choices=[['SI', 'SI'], ['NO', 'NO']],
+        choices=[['1', 'SI'], ['2', 'NO']],
         label='11. Fa parte di una OP?',
         widget=widgets.RadioSelect)
 
     q12 = models.StringField(
-        choices=[['Tra € 0 e € 24.999', 'Tra € 0 e € 24.999'],
-                 ['Tra € 25.000 e € 49.999 ', 'Tra € 25.000 e € 49.999 '],
-                 ['Tra € 50.000 e € 74.999', 'Tra € 50.000 e € 74.999'],
-                 ['Tra € 75.000 e € 100.000', 'Tra € 75.000 e € 100.000'],
-                 ['Oltre € 100.000', 'Oltre € 100.000']],
+        choices=[['1', 'Tra € 0 e € 24.999'],
+                 ['2 ', 'Tra € 25.000 e € 49.999 '],
+                 ['3', 'Tra € 50.000 e € 74.999'],
+                 ['4', 'Tra € 75.000 e € 100.000'],
+                 ['5', 'Oltre € 100.000']],
         label='12. Negli ultimi 3 anni quale è stato il suo reddito ad ettaro netto? ',
         widget=widgets.RadioSelect)
 
@@ -142,12 +142,12 @@ class Player(BasePlayer):
                                     '', min=0, max=100)
 
     q15 = models.StringField(
-        choices=[['SI', 'SI'], ['NO', 'NO'],['Non saprei','Non saprei']],
+        choices=[['1', 'SI'], ['2', 'NO'],['3','Non saprei']],
         label='15. Pensa che la sua attività melicola sarà continuata nel futuro da un familiare?',
         widget=widgets.RadioSelect)
 
     q16 = models.StringField(
-        choices=[['SI', 'SI'], ['NO', 'NO']],
+        choices=[['1', 'SI'], ['2', 'NO']],
         label='16. Nel 2021 ha sottoscritto la partecipazione e la copertura mutualisitca Fondo IST-Mele?',
         widget=widgets.RadioSelect)
 
@@ -156,31 +156,113 @@ class Player(BasePlayer):
     q16_c = models.BooleanField(blank=True, initial=False)
     q16_d = models.BooleanField(blank=True, initial=False)
 
-    q17_a = models.BooleanField(blank=True, initial=False)
-    q17_b = models.BooleanField(blank=True, initial=False)
-    q17_c = models.BooleanField(blank=True, initial=False)
-    q17_d = models.BooleanField(blank=True, initial=False)
-    q17_e = models.BooleanField(blank=True, initial=False)
+    q17 = models.StringField(
+        choices=[['1','50 €/ettaro'],['2','100 €/ettaro'],['3','150 €/ettaro'],['4','200 €/ettaro'],['5','250 €/ettaro']],
+        label= '17. Se dovesse scegliere quanti €/ettaro pagare come quota fissa per aderire alla copertura '
+               'mutualistica del Fondo IST mele quale preferirebbe?',
+        widget=widgets.RadioSelect)
 
-    q18_a = models.BooleanField(blank=True, initial=False)
-    q18_b = models.BooleanField(blank=True, initial=False)
-    q18_c = models.BooleanField(blank=True, initial=False)
-    q18_d = models.BooleanField(blank=True, initial=False)
-    q18_e = models.BooleanField(blank=True, initial=False)
+    q18 = models.StringField(
+        choices=[['1', '10%'], ['2', '15%'],['3', '20%'],['4', '25%'],['5', '30%']],
+        label='18. Se dovesse scegliere una soglia di reddito per il Fondo IST mele quale preferirebbe?',
+        widget=widgets.RadioSelect)
 
-    q19_a = models.BooleanField(blank=True, initial=False)
-    q19_b = models.BooleanField(blank=True, initial=False)
-    q19_c = models.BooleanField(blank=True, initial=False)
-    q19_d = models.BooleanField(blank=True, initial=False)
-    q19_e = models.BooleanField(blank=True, initial=False)
+    q19 = models.StringField(
+        choices=[['1', 'Fino al 60%'], ['2', 'Fino al 65%'],['3', 'Fino al 70%'],['4', 'Fino al 75%'],['5', 'Fino al 80%']],
+        label='19. Se dovesse scegliere una percentuale di compensazione dal Fondo IST Mele quale preferirebbe?',
+        widget=widgets.RadioSelect)
 
     q20 = models.StringField(
-        choices=[['Su base triennale', 'Su base triennale'], ['Su base quinquennale', 'Su base quinquennale']],
+        choices=[['1', 'Su base triennale'], ['2', 'Su base quinquennale']],
         label='20. Preferirebbe che il reddito medio sia calcolato:',
         widget=widgets.RadioSelect )
 
     q21 = models.StringField(
-        choices=[['Dipendando dal Trigger Event', 'Dipendando dal Trigger Event'], ['Non dipendano dal Trigger Event',
-                                                                                    'Non dipendano dal Trigger Event']],
+        choices=[['1', 'Dipendando dal Trigger Event'],
+                 ['2','Non dipendano dal Trigger Event'],
+                 ['3', 'Non saprei']],
         label='21. Preferirebbe che le richieste di risarcimento al Fondo IST Mele:',
         widget=widgets.RadioSelect )
+
+    iban = models.StringField(label='Prego inserisca il proprio codice IBAN')
+
+    qc1 = models.StringField(
+        choices=[['1',''], ['2',''],['3',''],['4',''],['5','']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qc2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qc3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qc4 = models.StringField(
+        choices=[['1',''], ['2',''],['3',''],['4',''],['5','']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt1 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt4 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qt5 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qh1 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qh3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qh2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs1 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs2 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs3 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )
+    qs4 = models.StringField(
+        choices=[['1', ''], ['2', ''], ['3', ''], ['4', ''], ['5', '']],
+        label='Cooperazione',
+        widget=widgets.RadioSelectHorizontal,
+    )

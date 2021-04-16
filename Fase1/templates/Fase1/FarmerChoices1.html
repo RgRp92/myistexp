@@ -1,31 +1,17 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
-
 {% block title %}
-LE SUE SCELTE
 {% endblock %}
 
 {% block content %}
-<div class="w3-container border-top ">
-<p></p>
-	<p>Questa scelta è l'unica fatta e sarà usata per il pagamento.</p>
-	<p> La variazione di reddito prevista dagliesperti è <b>+7%</b>. Quindi, riceverà <b>€{{ w_amt }}</b> </p>
-</div>
-<link rel="stylesheet" href="{% static "global/farmerchoices.css" %}">
-<script type="text/javascript" src="{% static "global/farmerchoice_1.js" %}"></script>
-
-
-
-
-
-<p> <h4> SCELTA 1 </h4> </p>
-<div id = "full_div" style=" height: 420px;"></div>
+<h2 style="text-align:center"> ORA PROCEDEREMO CON LA FASE 2</h2>
+<p />
 
 <div class="container">
         	<div class="row">
         		&nbsp;
         	</div>
-        	<div class="row" style="padding-left:106%;">
+        	<div class="row" style="padding-left:95%;">
         		<div class="col-md-10">
 
         		</div>
@@ -38,12 +24,6 @@ LE SUE SCELTE
         	</div>
         </div>
 
-{% endblock %}
-
-{% block scripts %}
-<script>
-let belief_farms = {{beliefs|json}};
-farmerchoices.mkview(belief_farms, "full_div", results = 1, show_submit = 1);
-</script>
 
 {% endblock %}
+
