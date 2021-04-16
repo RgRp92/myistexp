@@ -184,8 +184,6 @@ class Player(BasePlayer):
         label='21. Preferirebbe che le richieste di risarcimento al Fondo IST Mele:',
         widget=widgets.RadioSelect )
 
-    iban = models.StringField(label='Prego inserisca il proprio codice IBAN')
-
     qc1 = models.StringField(
         choices=[['1',''], ['2',''],['3',''],['4',''],['5','']],
         label='Cooperazione',
