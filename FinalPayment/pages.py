@@ -48,10 +48,12 @@ class Results(Page):
 
 class Results2(Page):
     def vars_for_template(self):
+        payoff_HLc = round((self.player.participant.vars['payoff_HL']/1000) * (0.80),2)
         # retrieve values from participant.vars and store them in a dictionary
         return {
             'HL_series':  self.participant.vars['HL_series'],
-            'payoff_HL': self.player.participant.vars['payoff_HL'],  # payoff
+            'payoff_HL': self.player.participant.vars['payoff_HL'],
+            'payoff_HLc':payoff_HLc, # payoff
             'row': self.player.participant.vars['HL_row'],  # randomly chosen row
             'value': self.participant.vars['HL_random'],  # randomly chosen value to define outcome
             'choice': self.participant.vars['HL_choice'],  # actual choice
@@ -73,14 +75,17 @@ class Results2(Page):
         return self.session.vars["app"] == 2 and self.session.vars["winner"] == self.player.id_in_group
 
     def before_next_page(self):
-        self.player.payoff = round(self.participant.vars["payoff_HL"],2)
+        self.player.payoff = round((self.player.participant.vars['payoff_HL']/1000) * (0.80),2)
 
 class Results3(Page):
     def vars_for_template(self):
+        rpayoff_HLc = round((self.player.participant.vars['rpayoff_HL']/1000) * (0.80),2)
+
         # retrieve values from participant.vars and store them in a dictionary
         return {
             'rHL_series': self.participant.vars['rHL_series'],
-            'rpayoff_HL': self.player.participant.vars['rpayoff_HL'],  # payoff
+            'rpayoff_HL': self.player.participant.vars['rpayoff_HL'],
+            'rpayoff_HLc':rpayoff_HLc, # payoff
             'rrow': self.player.participant.vars['rHL_row'],  # randomly chosen row
             'rvalue': self.participant.vars['rHL_random'],  # randomly chosen value to define outcome
             'rchoice': self.participant.vars['rHL_choice'],  # actual choice
@@ -104,7 +109,7 @@ class Results3(Page):
         return self.session.vars["app"] == 3 and self.session.vars["winner"] == self.player.id_in_group
 
     def before_next_page(self):
-        self.player.payoff = round(self.participant.vars["rpayoff_HL"],2)
+        self.player.payoff = round((self.player.participant.vars['rpayoff_HL']/1000) * (0.80),2)
 
 
 class goodbye(Page):
