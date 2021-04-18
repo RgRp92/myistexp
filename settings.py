@@ -105,4 +105,5 @@ INSTALLED_APPS = ['otree']
 
 PARTICIPANT_FIELDS = ['applearea']
 
+OTREE_PRODUCTION = [1]
 
