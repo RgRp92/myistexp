@@ -59,16 +59,16 @@ class PageHLExample1(Page):
     def vars_for_template(self):
         # retrieve values from constants and store them in a dictionary
         return {
-            'a4': Constants.s1_a1_4,
-            'aa4': Constants.s1_a2_4,
+            'a4': Constants.aex,
+            'aa4': Constants.aaex,
         }
 
 class PageHLExample2(Page):
     def vars_for_template(self):
         # retrieve values from constants and store them in a dictionary
         return {
-            'b11': Constants.s1_b1,
-            'b12': Constants.s1_b2,
+            'b11': Constants.bex,
+            'b12': Constants.bbex,
         }
 class PageHLExample3(Page):
     def vars_for_template(self):

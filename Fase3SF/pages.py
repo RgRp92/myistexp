@@ -350,7 +350,7 @@ class OutcomeHL(Page):
             self.participant.vars['rvar2'] = Constants.var6 * 100
             self.participant.vars['prb1'] = Constants.prb5
             self.participant.vars['prb2'] = Constants.prb6
-            self.participant.vars['rist_value'] = Constants.ist[self.participant.vars['3HL_row_3'] - 1]
+            self.participant.vars['rist_value'] = Constants.ist[self.participant.vars['rHL_row_3'] - 1]
             self.participant.vars['rHL_series'] = 3
             self.participant.vars['rHL_choice'] =  self.participant.vars['HL_choice_rs3']
             self.participant.vars['ra_value'] = self.participant.vars['inc_fut_ist_1_rs3'][self.participant.vars['rHL_row_3'] - 1]
