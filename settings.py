@@ -44,3 +44,6 @@ SECRET_KEY = 'd*234n^cxml5nkk09#r0%&%8$kt)pwi3qq)8jk36ts*y)nk)kf'
 INSTALLED_APPS = ['otree']
 
 PARTICIPANT_FIELDS = ['applearea']
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
