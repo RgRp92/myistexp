@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<h2> LA SUA SCELTA: UN ESEMPIO 2</h2>
+
+{% endblock %}
+{% block content %}
+<div class="w3-container border-top ">
+	<p></p>
+<ul>
+	<p></p>
+	<li> Se desidera che la Scelta 2 abbia maggiori probabilità di essere estratta per la quantificazione dei suoi guadagni perchè la
+	preferisce rispetto alla Scelta 1, allora vorrà assegnare più palline alla Scelta 2.</li>
+</ul>
+</div>
+	<img src="{%static 'Fase1/tab2a.jpg' %}"  align="middle" width="100%"/>
+	<p>SCELTA 1</p>
+	<img src="{%static 'Fase1/examplea.jpg' %}"  align="middle" width="100%"/>
+	<p>SCELTA 2</p>
+	<img src="{%static 'Fase1/exampleb.jpg' %}"  align="middle" width="100%"/>
+
+<div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:95%;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large" >
+                  <span style="font-size:12pt">Avanti</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+{% endblock %}
