@@ -4,28 +4,17 @@ from .models import Constants
 import random
 
 
-
-
-class TitlePage(Page):
+class Page0(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class Instructions(Page):
+class ISTPage1(Page):
     form_model = 'player'
 
-class Instructions1(Page):
+class ISTPage2(Page):
     form_model = 'player'
 
-class Instructions2(Page):
-    form_model = 'player'
-
-class ISTMELE(Page):
-    form_model = 'player'
-
-class ISTMELE2(Page):
-    form_model = 'player'
-
-class ISTMELE3(Page):
+class ISTPage3(Page):
     form_model = 'player'
 
     def vars_for_template(self):
@@ -33,18 +22,18 @@ class ISTMELE3(Page):
         appleareaist = self.participant.vars['appleareaist']
 
         insvalue = self.participant.vars['insvalue']
-        insvalueist = (insvalue * 0.005)
-        insvaluedisc = (insvalue * 0.001)
+        insvalueist = round((insvalue * 0.005),2)
+        insvaluedisc = round((insvalue * 0.001),2)
 
         insprem = self.participant.vars['insprem']
-        inspremist = (insprem * 0.04)
-        inspremdisc = (insprem * 0.04)
+        inspremist = round((insprem * 0.04),2)
+        inspremdisc = round((insprem * 0.04),2)
 
         istct = (150 + inspremist + insvalueist)
 
-        disctot = (insvaluedisc + inspremdisc)
+        disctot = round((insvaluedisc + inspremdisc),2)
 
-        farmercost = (istct - disctot)
+        farmercost = round((istct - disctot),2)
 
         eutot = round(((istct *70)/30),2)
 
@@ -68,7 +57,7 @@ class ISTMELE3(Page):
 
         }
 
-class ISTMELE4(Page):
+class ISTPage4(Page):
     form_model = 'player'
 
     def vars_for_template(self):
@@ -119,18 +108,40 @@ class ISTMELE4(Page):
             'fin_inc': fin_inc
 
         }
-class Payment(Page):
-    form_model = 'player'
-class Payment2(Page):
+
+class IstruzioniPage1(Page):
     form_model = 'player'
 
-class PageHLExample(Page):
+class IstruzioniPage2(Page):
+    form_model = 'player'
+
+    def vars_for_template(self):
+        var1 = Constants.var1*100
+        var2 = Constants.var2*100
+        var3 = Constants.var3*100
+        var4 = Constants.var4 * 100
+        var5 = Constants.var5 * 100
+        var6 = Constants.var6 * 100
+        return {
+            'var1': var1,
+            'var2': var2,
+            'var3': var3,
+            'var4': var4,
+            'var5': var5,
+            'var6': var6
+        }
+
+class IstruzioniPage3(Page):
+    form_model = 'player'
+
+class IstruzioniPage4(Page):
+    form_model = 'player'
+
+class IstruzioniPage5(Page):
 # which forms are needed from class player
     form_model = 'player'
 
-
-
-class PageHLExample1(Page):
+class EsempioPage1(Page):
     def vars_for_template(self):
         # retrieve values from constants and store them in a dictionary
         return {
@@ -138,28 +149,7 @@ class PageHLExample1(Page):
             'aa4': Constants.s1_a2_4,
         }
 
-class PageHLExample2(Page):
-    def vars_for_template(self):
-        # retrieve values from constants and store them in a dictionary
-        return {
-            'b11': Constants.s1_b1,
-            'b12': Constants.s1_b2,
-        }
-class PageHLExample3(Page):
-    def vars_for_template(self):
-        # retrieve values from constants and store them in a dictionary
-        return {
-            'b11': Constants.s1_b1,
-            'b12': Constants.s1_b2,
-        }
-class PageHLExample3a(Page):
-    def vars_for_template(self):
-        # retrieve values from constants and store them in a dictionary
-        return {
-            'b11': Constants.s1_b1,
-            'b12': Constants.s1_b2,
-        }
-class PageHLExample3b(Page):
+class EsempioPage2(Page):
     def vars_for_template(self):
         # retrieve values from constants and store them in a dictionary
         return {
@@ -167,16 +157,44 @@ class PageHLExample3b(Page):
             'b12': Constants.s1_b2,
         }
 
+class EsempioPage3(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.s1_b1,
+            'b12': Constants.s1_b2,
+        }
 
+class EsempioPage4(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.s1_b1,
+            'b12': Constants.s1_b2,
+        }
 
-class Instructions3(Page):
+class EsempioPage5(Page):
+    def vars_for_template(self):
+        # retrieve values from constants and store them in a dictionary
+        return {
+            'b11': Constants.s1_b1,
+            'b12': Constants.s1_b2,
+        }
+
+class Esperti(Page):
     form_model = 'player'
 
 class MyWaitPage(Page):
     form_model = 'player'
+    def vars_for_template(self):
+        self.player.vars_for_template()
+        rate = round(25000/self.participant.vars['inc_fut_2_s2'],2)
+        return {'rate':rate}
 
+    def before_next_page(self):
+        self.participant.vars['rate'] = round(25000/self.participant.vars['inc_fut_2_s2'],2)
 
-class PageHL(Page):
+class HL_Page1(Page):
 # which forms are needed from class player
     form_model = 'player'
     form_fields = ['HL_1',
@@ -186,28 +204,28 @@ class PageHL(Page):
                    'HL_5',
                    'HL_6',
                    'HL_7',
-                   'HL_8',
-                   'HL_9',
-                   'HL_10'] # all 10 options
+                   ] # all 10 options
 
     # values that are to be displayed (dictionary)
     def vars_for_template(self):
         self.player.vars_for_template()
         var1 = Constants.var1 * 100
+        var11 = Constants.var11 * 100
         var2 = Constants.var2 * 100
+        var22 = Constants.var22 * 100
         return {
             'var1': var1,
+            'var11': var11,
             'var2': var2,
-            'ist1': Constants.ist[0],
-            'ist2': Constants.ist[1],
-            'ist3': Constants.ist[2],
-            'ist4': Constants.ist[3],
-            'ist5': Constants.ist[4],
-            'ist6': Constants.ist[5],
-            'ist7': Constants.ist[6],
-            'ist8': Constants.ist[7],
-            'ist9': Constants.ist[8],
-            'ist10': Constants.ist[9],
+            'var22': var22,
+            'ist1': Constants.ist_s1[0],
+            'ist2': Constants.ist_s1[1],
+            'ist3': Constants.ist_s1[2],
+            'ist4': Constants.ist_s1[3],
+            'ist5': Constants.ist_s1[4],
+            'ist6': Constants.ist_s1[5],
+            'ist7': Constants.ist_s1[6],
+
             's1_a1_1': self.participant.vars['inc_fut_ist_1_s1'][0],
             's1_a1_2': self.participant.vars['inc_fut_ist_1_s1'][1],
             's1_a1_3': self.participant.vars['inc_fut_ist_1_s1'][2],
@@ -215,9 +233,7 @@ class PageHL(Page):
             's1_a1_5': self.participant.vars['inc_fut_ist_1_s1'][4],
             's1_a1_6': self.participant.vars['inc_fut_ist_1_s1'][5],
             's1_a1_7': self.participant.vars['inc_fut_ist_1_s1'][6],
-            's1_a1_8': self.participant.vars['inc_fut_ist_1_s1'][7],
-            's1_a1_9': self.participant.vars['inc_fut_ist_1_s1'][8],
-            's1_a1_10': self.participant.vars['inc_fut_ist_1_s1'][9],
+
             's1_a2_1': self.participant.vars['inc_fut_ist_2_s1'][0],
             's1_a2_2': self.participant.vars['inc_fut_ist_2_s1'][1],
             's1_a2_3': self.participant.vars['inc_fut_ist_2_s1'][2],
@@ -225,9 +241,7 @@ class PageHL(Page):
             's1_a2_5': self.participant.vars['inc_fut_ist_2_s1'][4],
             's1_a2_6': self.participant.vars['inc_fut_ist_2_s1'][5],
             's1_a2_7': self.participant.vars['inc_fut_ist_2_s1'][6],
-            's1_a2_8': self.participant.vars['inc_fut_ist_2_s1'][7],
-            's1_a2_9': self.participant.vars['inc_fut_ist_2_s1'][8],
-            's1_a2_10': self.participant.vars['inc_fut_ist_2_s1'][9],
+
             's1_b1': self.participant.vars['inc_fut_1_s1'],
             's1_b2': self.participant.vars['inc_fut_2_s1'],
         }
@@ -239,7 +253,7 @@ class PageHL(Page):
         self.participant.vars['b11_value'] = self.participant.vars['inc_fut_1_s1']
         self.participant.vars['b12_value'] = self.participant.vars['inc_fut_2_s1']
 
-class PageHL_2(Page):
+class HL_Page2(Page):
 # which forms are needed from class player
     form_model = 'player'
     form_fields = ['s2_HL_1',
@@ -249,28 +263,28 @@ class PageHL_2(Page):
                    's2_HL_5',
                    's2_HL_6',
                    's2_HL_7',
-                   's2_HL_8',
-                   's2_HL_9',
-                   's2_HL_10'] # all 10 options
+                   ] # all 10 options
 
     # values that are to be displayed (dictionary)
     def vars_for_template(self):
         self.player.vars_for_template()
         var3 = Constants.var3 * 100
+        var33 = Constants.var33 * 100
         var4 = Constants.var4 * 100
+        var44 = Constants.var44 * 100
         return {
             'var3': var3,
             'var4': var4,
-            'ist1': Constants.ist[0],
-            'ist2': Constants.ist[1],
-            'ist3': Constants.ist[2],
-            'ist4': Constants.ist[3],
-            'ist5': Constants.ist[4],
-            'ist6': Constants.ist[5],
-            'ist7': Constants.ist[6],
-            'ist8': Constants.ist[7],
-            'ist9': Constants.ist[8],
-            'ist10': Constants.ist[9],
+            'var33': var33,
+            'var44': var44,
+            'ist1': Constants.ist_s2[0],
+            'ist2': Constants.ist_s2[1],
+            'ist3': Constants.ist_s2[2],
+            'ist4': Constants.ist_s2[3],
+            'ist5': Constants.ist_s2[4],
+            'ist6': Constants.ist_s2[5],
+            'ist7': Constants.ist_s2[6],
+
             's2_a1_1': self.participant.vars['inc_fut_ist_1_s2'][0],
             's2_a1_2': self.participant.vars['inc_fut_ist_1_s2'][1],
             's2_a1_3': self.participant.vars['inc_fut_ist_1_s2'][2],
@@ -278,9 +292,7 @@ class PageHL_2(Page):
             's2_a1_5': self.participant.vars['inc_fut_ist_1_s2'][4],
             's2_a1_6': self.participant.vars['inc_fut_ist_1_s2'][5],
             's2_a1_7': self.participant.vars['inc_fut_ist_1_s2'][6],
-            's2_a1_8': self.participant.vars['inc_fut_ist_1_s2'][7],
-            's2_a1_9': self.participant.vars['inc_fut_ist_1_s2'][8],
-            's2_a1_10': self.participant.vars['inc_fut_ist_1_s2'][9],
+
             's2_a2_1': self.participant.vars['inc_fut_ist_2_s2'][0],
             's2_a2_2': self.participant.vars['inc_fut_ist_2_s2'][1],
             's2_a2_3': self.participant.vars['inc_fut_ist_2_s2'][2],
@@ -288,9 +300,7 @@ class PageHL_2(Page):
             's2_a2_5': self.participant.vars['inc_fut_ist_2_s2'][4],
             's2_a2_6': self.participant.vars['inc_fut_ist_2_s2'][5],
             's2_a2_7': self.participant.vars['inc_fut_ist_2_s2'][6],
-            's2_a2_8': self.participant.vars['inc_fut_ist_2_s2'][7],
-            's2_a2_9': self.participant.vars['inc_fut_ist_2_s2'][8],
-            's2_a2_10': self.participant.vars['inc_fut_ist_2_s2'][9],
+
             's2_b1': self.participant.vars['inc_fut_1_s2'],
             's2_b2': self.participant.vars['inc_fut_2_s2'],
         }
@@ -302,7 +312,7 @@ class PageHL_2(Page):
         self.participant.vars['b11_value'] = self.participant.vars['inc_fut_1_s2']
         self.participant.vars['b12_value'] = self.participant.vars['inc_fut_2_s2']
 
-class PageHL_3(Page):
+class HL_Page3(Page):
 # which forms are needed from class player
     form_model = 'player'
     form_fields = ['s3_HL_1',
@@ -316,14 +326,18 @@ class PageHL_3(Page):
         self.player.vars_for_template()
         var5 = Constants.var5 * 100
         var6 = Constants.var6 * 100
+        var55 = Constants.var55 * 100
+        var66 = Constants.var66 * 100
         return {
-            'var6': var5,
-            'var5': var6,
-            'ist1': Constants.ist[0],
-            'ist2': Constants.ist[1],
-            'ist3': Constants.ist[2],
-            'ist4': Constants.ist[3],
-            'ist5': Constants.ist[4],
+            'var5': var5,
+            'var6': var6,
+            'var55': var55,
+            'var66': var66,
+            'ist1': Constants.ist_s3[0],
+            'ist2': Constants.ist_s3[1],
+            'ist3': Constants.ist_s3[2],
+            'ist4': Constants.ist_s3[3],
+            'ist5': Constants.ist_s3[4],
             's3_a1_1': self.participant.vars['inc_fut_ist_1_s3'][0],
             's3_a1_2': self.participant.vars['inc_fut_ist_1_s3'][1],
             's3_a1_3': self.participant.vars['inc_fut_ist_1_s3'][2],
@@ -345,7 +359,6 @@ class PageHL_3(Page):
         self.participant.vars['b11_value'] = self.participant.vars['inc_fut_1_s3']
         self.participant.vars['b12_value'] = self.participant.vars['inc_fut_2_s3']
 
-
 class OutcomeHL(Page):
 # values needed to inform subjects about the actual outcome
     def vars_for_template(self):
@@ -366,9 +379,11 @@ class OutcomeHL(Page):
             'p_A_2': 10-self.participant.vars['HL_row'],
             'p_B_1': self.participant.vars['HL_row'],
             'p_B_2': 10-self.participant.vars['HL_row'],
-            'ist_value':Constants.ist[self.participant.vars['HL_row'] - 1],
+            'ist_value':Constants.ist_s1[self.participant.vars['HL_row'] - 1],
             'var1': -Constants.var1 * 100,
-            'var2': +Constants.var2 * 100
+            'var2': +Constants.var2 * 100,
+            'var11': -Constants.var11 * 100,
+            'var22': +Constants.var22 * 100
             }
         elif self.participant.vars["HL_series"] == 2 :
             # retrieve values from participant.vars and store them in a dictionary
@@ -387,10 +402,11 @@ class OutcomeHL(Page):
             'p_A_2': 10-self.participant.vars['HL_row'],
             'p_B_1': self.participant.vars['HL_row'],
             'p_B_2': 10-self.participant.vars['HL_row'],
-            'ist_value':Constants.ist[self.participant.vars['HL_row'] - 1],
+            'ist_value':Constants.ist_s2[self.participant.vars['HL_row'] - 1],
             'var1': -Constants.var3 * 100,
-            'var2': +Constants.var4 * 100
-
+            'var2': +Constants.var4 * 100,
+            'var11': -Constants.var33 * 100,
+            'var22': +Constants.var44 * 100
             }
         else :
             # retrieve values from participant.vars and store them in a dictionary
@@ -409,17 +425,18 @@ class OutcomeHL(Page):
             'p_A_2': 10-self.participant.vars['HL_row_3'],
             'p_B_1': self.participant.vars['HL_row_3'],
             'p_B_2': 10-self.participant.vars['HL_row_3'],
-            'ist_value':Constants.ist[self.participant.vars['HL_row_3'] - 1],
+            'ist_value':Constants.ist_s3[self.participant.vars['HL_row_3'] - 1],
             'var1': -Constants.var5 * 100,
-            'var2': -Constants.var6 * 100
-
+            'var2': Constants.var6 * 100,
+            'var11': -Constants.var55 * 100,
+            'var22': Constants.var66 * 100
             }
 
     def before_next_page(self):
         if self.participant.vars["HL_series"] == 1 :
             self.participant.vars['var1'] = Constants.var1 *100
             self.participant.vars['var2'] = Constants.var2 *100
-            self.participant.vars['ist_value'] = Constants.ist[self.participant.vars['HL_row'] - 1]
+            self.participant.vars['ist_value'] = Constants.ist_s1[self.participant.vars['HL_row'] - 1]
             self.participant.vars['HL_series'] = 1
             self.participant.vars['HL_choice'] =  self.participant.vars['HL_choice_s1']
             self.participant.vars['a_value'] = self.participant.vars['inc_fut_ist_1_s1'][self.participant.vars['HL_row'] - 1]
@@ -430,7 +447,9 @@ class OutcomeHL(Page):
         elif self.participant.vars["HL_series"] == 2 :
             self.participant.vars['var1'] = Constants.var3 * 100
             self.participant.vars['var2'] = Constants.var4 * 100
-            self.participant.vars['ist_value'] = Constants.ist[self.participant.vars['HL_row'] - 1]
+            self.participant.vars['var11'] = Constants.var33 * 100
+            self.participant.vars['var22'] = Constants.var44 * 100
+            self.participant.vars['ist_value'] = Constants.ist_s2[self.participant.vars['HL_row'] - 1]
             self.participant.vars['HL_series'] = 2
             self.participant.vars['HL_choice'] =  self.participant.vars['HL_choice_s2']
             self.participant.vars['a_value'] = self.participant.vars['inc_fut_ist_1_s2'][self.participant.vars['HL_row'] - 1]
@@ -441,7 +460,9 @@ class OutcomeHL(Page):
         else:
             self.participant.vars['var1'] = Constants.var5 * 100
             self.participant.vars['var2'] = Constants.var6 * 100
-            self.participant.vars['ist_value'] = Constants.ist[self.participant.vars['HL_row_3'] - 1]
+            self.participant.vars['var11'] = Constants.var55 * 100
+            self.participant.vars['var22'] = Constants.var66 * 100
+            self.participant.vars['ist_value'] = Constants.ist_s3[self.participant.vars['HL_row_3'] - 1]
             self.participant.vars['HL_series'] = 3
             self.participant.vars['HL_choice'] =  self.participant.vars['HL_choice_s3']
             self.participant.vars['a_value'] = self.participant.vars['inc_fut_ist_1_s3'][self.participant.vars['HL_row_3'] - 1]
@@ -452,25 +473,24 @@ class OutcomeHL(Page):
 
 # the coreography of pages
 page_sequence = [
-    TitlePage,
-    ISTMELE,
-    ISTMELE2,
-    ISTMELE3,
-    ISTMELE4,
-    Instructions,
-    Instructions2,
-    PageHLExample,
-    Payment,
-    Payment2,
-    PageHLExample1,
-    PageHLExample2,
-    PageHLExample3,
-    PageHLExample3a,
-    PageHLExample3b,
-    Instructions3,
+    Page0,
+    ISTPage1,
+    ISTPage2,
+    ISTPage3,
+    ISTPage4,
+    IstruzioniPage1,
+    IstruzioniPage3,
+    IstruzioniPage4,
+    IstruzioniPage5,
+    EsempioPage1,
+    EsempioPage2,
+    EsempioPage3,
+    EsempioPage4,
+    EsempioPage5,
+    Esperti,
     MyWaitPage,
-    PageHL,
-    PageHL_2,
-    PageHL_3,
-    OutcomeHL
+    HL_Page1,
+    HL_Page2,
+    HL_Page3,
+    OutcomeHL,
 ]

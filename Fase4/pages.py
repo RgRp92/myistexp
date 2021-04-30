@@ -2,15 +2,15 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-class TitlePage(Page):
+class Page0(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class Demographics(Page):
+class Page1Demographics(Page):
     form_model = 'player'
     form_fields = ['q1','q2','q3']
 
-class AgriAct(Page):
+class Page2AgriAct(Page):
         form_model = 'player'
         form_fields = ['q4', 'q5', 'q6', 'q7',
                        'q8_a', 'q8_b', 'q8_c',
@@ -23,21 +23,21 @@ class AgriAct(Page):
                        'q10_f1', 'q10_f2', 'q10_f3', 'q10_f4', 'q10_f5',
                        'q11',]
 
-class AgriAct2(Page):
+class Page3AgriAct2(Page):
     form_model = 'player'
     form_fields = ['q12','q13','q14','q15']
 
-class ISTsurvey(Page):
+class Page4ISTsurvey(Page):
     form_model = 'player'
     form_fields = ['q16','q16_a','q16_b','q16_c','q16_d',
                    'q17','q18','q19','q20','q21']
 
-class LikertScaleQ(Page):
+class Page5LikertScaleQ(Page):
     form_model = 'player'
     form_fields = ['qc1','qc2','qc3','qc4',
                    'qt1','qt2','qt3','qt4','qt5']
 
-class LikertScaleQ1(Page):
+class Page6LikertScaleQ1(Page):
     form_model = 'player'
     form_fields = ['qh1','qh2','qh3',
                    'qs1','qs2','qs3','qs4']
@@ -45,8 +45,14 @@ class LikertScaleQ1(Page):
 class ResultsWaitPage(WaitPage):
     pass
 
-
 class Results(Page):
     form_model = 'player'
 
-page_sequence = [TitlePage,Demographics, AgriAct, AgriAct2, ISTsurvey, LikertScaleQ, LikertScaleQ1, Results]
+page_sequence = [Page0,
+                 Page1Demographics,
+                 Page2AgriAct,
+                 Page3AgriAct2,
+                 Page4ISTsurvey,
+                 Page5LikertScaleQ,
+                 Page6LikertScaleQ1,
+                 Results]

@@ -43,7 +43,7 @@ def set_beliefs_data(page_obj):
     nrounds = len(nrounds)
     page_obj.participant.vars["beliefs_num_rounds"] = nrounds
 
-class TitlePage(Page):
+class Page0(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -51,7 +51,7 @@ class TitlePage(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class Intro(Page):
+class Page1FarmerInfo(Page):
     form_model = 'player'
     form_fields = ['applearea','insprem','insvalue','cost','income1','income2','income3',]
 
@@ -73,15 +73,7 @@ class Intro(Page):
         self.participant.vars['insprem']= self.player.insprem
         self.participant.vars['avginc']= self.player.avginc
 
-
-class Instructions2(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-class Instructions2b(Page):
+class Page2Interval(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -89,7 +81,7 @@ class Instructions2b(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class Instructions2c(Page):
+class Page3Strumento(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -97,7 +89,71 @@ class Instructions2c(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class TaskPageExample(Page):
+class Page4Payoff(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page5Esempio1(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page6Esempio1Payoff(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page7Esempio2(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page8Esempio2Payoff(Page):
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page9QuizPage(Page):
+    form_model = 'player'
+    form_fields = ['quiz','quiz2']
+
+    def quiz_error_message(self, value):
+        if value != '1':
+            return 'La risposta non è corretta. La preghiamo di correggere la sua risposta.'
+        else:
+            'La risposta  è corretta'
+
+    def quiz2_error_message(self, value):
+        if value != '1':
+            return 'La risposta non è corretta. La preghiamo di correggere la sua risposta.'
+        else:
+            pass
+
+
+    def vars_for_template(self):
+            # Set the belief data for the participant
+        set_beliefs_data(self)
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page10ProvaStrumento(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -143,29 +199,19 @@ class TaskPageExample(Page):
     def is_displayed(self):
         return self.round_number <= 1
 
-class TaskPageExample2(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-class TaskPageExample2b(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
+class Page11Esperti(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class TaskPageExample3(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
+class Page12Ripetere(Page):
     def is_displayed(self):
         return self.round_number == 1
-class TaskPageExample3b(Page):
+
+class Page13Ripetere2(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+class Page14RipEsemp1(Page):
     def vars_for_template(self):
             # Set the belief data for the participant
         set_beliefs_data(self)
@@ -173,90 +219,8 @@ class TaskPageExample3b(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class QuizPage(Page):
-    form_model = 'player'
-    form_fields = ['quiz','quiz2']
 
-    def quiz_error_message(self, value):
-        if value != '1':
-            return 'La risposta non è corretta. La preghiamo di correggere la sua risposta.'
-        else:
-            'La risposta  è corretta'
-
-    def quiz2_error_message(self, value):
-        if value != '1':
-            return 'La risposta non è corretta. La preghiamo di correggere la sua risposta.'
-        else:
-            pass
-
-
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-class Instructions3(Page):
-    def is_displayed(self):
-        return self.round_number == 1
-
-class Instructions4(Page):
-    def is_displayed(self):
-        return self.round_number == 1
-
-class Instructions5(Page):
-    def is_displayed(self):
-        return self.round_number == 1
-
-class TaskPageExample4(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-class TaskPageExample5(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-class TaskPageExample5b(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-class TaskPageExample5c(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-class TaskPageExample5d(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-class TaskPageExample5e(Page):
-    def vars_for_template(self):
-            # Set the belief data for the participant
-        set_beliefs_data(self)
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-class TaskPageExample6(Page):
+class Page20RipEsemp3a(Page):
     def vars_for_template(self):
         # Set the belief data for the participant
         set_beliefs_data(self)
@@ -264,7 +228,7 @@ class TaskPageExample6(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class TaskPageExample6b(Page):
+class Page21RipEsemp3b(Page):
     def vars_for_template(self):
         # Set the belief data for the participant
         set_beliefs_data(self)
@@ -272,7 +236,7 @@ class TaskPageExample6b(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class TaskPageExample6c(Page):
+class Page22RipEsemp3c(Page):
     def vars_for_template(self):
         # Set the belief data for the participant
         set_beliefs_data(self)
@@ -280,14 +244,25 @@ class TaskPageExample6c(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class MyWaitPage(Page):
-    template_name = 'Fase1/MyWaitPage.html'
+class Page23MyWaitPage(Page):
+    template_name = 'Fase1SF/Page23MyWaitPage.html'
+
+    def vars_for_template(self):
+        return {
+        'inc1' : self.player.income1,
+        'inc2': self.player.income2,
+        'inc3': self.player.income3,
+        'applearea': self.participant.vars['applearea'],
+        'insvalue': self.participant.vars['insvalue'],
+        'insprem': self.participant.vars['insprem'],
+        'avginc': self.participant.vars['avginc'],
+        }
 
     def is_displayed(self):
 
         return self.round_number == 1
 
-class FarmerChoice(Page):
+class Page24FarmerChoice(Page):
     form_model  = "player"
 
     def initial_values(self):
@@ -338,21 +313,14 @@ class FarmerChoice(Page):
         choice = [getattr(self.player, "bin" + str(b)) for b in range(1, 11)]
         self.participant.vars["beliefs_choice"].append(choice)
 
-class Repeat1(Page):
+class Page25Repeat1(Page):
     form_model = "player"
     form_fields = ["rep_1"]
 
     def is_displayed(self):
         return self.round_number == round(1)
 
-class Repeat2(Page):
-    form_model = "player"
-    form_fields = ["rep_2"]
-
-    def is_displayed(self):
-        return self.round_number == round(2)
-
-class FarmerChoices1(Page):
+class Page26Farmer1ChoiceResult(Page):
     form_model = "player"
 
     def vars_for_template(self):
@@ -413,7 +381,14 @@ class FarmerChoices1(Page):
         if self.player.rep_1 == 'NO':
             return 'Fase2SF'
 
-class FarmerChoices2(Page):
+class Page27Repeat2(Page):
+    form_model = "player"
+    form_fields = ["rep_2"]
+
+    def is_displayed(self):
+        return self.round_number == round(2)
+
+class Page28Farmer2ChoicesUrna(Page):
     form_model = "player"
     form_fields = ["pref1","pref2"]
 
@@ -469,7 +444,80 @@ class FarmerChoices2(Page):
     def is_displayed(self):
         return self.player.rep_2 == 'NO'
 
-class FarmerChoices3(Page):
+class Page29Farmer2ChoicesResult(Page):
+    form_model  = "player"
+
+    def vars_for_template(self):
+        weights = self.participant.vars["weights"]
+        # The number of rounds
+        num_rounds = [0, 1]
+        # Select a round at random for payment
+        if "beliefs_pay_round" not in self.participant.vars:
+            pay_round = choices(num_rounds, weights)
+            self.participant.vars["beliefs_pay_round"] = pay_round
+        else:
+            pay_round = self.participant.vars["beliefs_pay_round"]
+
+        pay_round = pay_round[0]
+
+        prev_player = self.player.in_round(pay_round + 1)
+        self.player.w_amt = (12.5) + \
+                            12.5 * ((2 * prev_player.bin6 / 100) - (1 / 10000) * (
+                prev_player.bin1 ** 2 + prev_player.bin2 ** 2 + prev_player.bin3 ** 2 +
+                prev_player.bin4 ** 2 + prev_player.bin5 ** 2 + prev_player.bin6 ** 2 +
+                prev_player.bin7 ** 2 + prev_player.bin8 ** 2 + prev_player.bin9 ** 2 +
+                prev_player.bin10))
+        w_amt = round(self.player.w_amt, 2)
+
+        # The saved choices made by the subject
+        choices_made = self.participant.vars["beliefs_choice"]
+        pay_choices = choices_made[pay_round]
+
+        # The lottery data for this row
+        beldat = self.participant.vars["beliefs_round_data"][pay_round]
+
+        # Not really used anywhere
+        final_payment = {
+                "currency" : beldat["currency"],
+                "amounts": [],
+                "when": [beldat["pay_by"]],
+                "choices": pay_choices,
+                }
+        self.participant.vars["beliefs_final_payment"] = final_payment
+        setattr(self.player, "final_payment", json.dumps(final_payment))
+
+        beliefs_results = {
+                "round_number"    : self.round_number,
+                "number_of_rounds": self.participant.vars["beliefs_num_rounds"],
+                "hex_colors"      : self.session.vars["beliefs_hex_colors"],
+                "beldat"          : beldat,
+                "tokens"          : beldat["tokens"],
+                "currency"        : beldat["currency"],
+                "task_number"     : 6,
+                "pay_round": pay_round + 1,
+                "pay_choices": pay_choices,
+                "final_payment" : final_payment,
+               }
+
+        # Save this data for use in the final results page
+        self.participant.vars["beliefs_results"] = beliefs_results
+
+        return {
+            "beliefs" : beliefs_results,
+            "w_amt": round(w_amt, 2)
+        }
+
+    def is_displayed(self):
+        return self.player.rep_2 == "NO"
+
+    def before_next_page(self):
+        self.participant.vars["w_amt"] = round(self.player.w_amt, 2)
+
+    def app_after_this_page(self, upcoming_apps):
+        if self.player.rep_2 == 'NO':
+            return 'Fase2SF'
+
+class Page28Farmer3ChoicesUrna(Page):
     form_model = "player"
     form_fields = ['pref1', 'pref2','pref3']
 
@@ -553,141 +601,7 @@ class FarmerChoices3(Page):
         self.player.sum_token = sum([self.player.pref1, self.player.pref2, self.player.pref3])
         self.participant.vars["weights"] = [self.player.pref1, self.player.pref2, self.player.pref3]
 
-
-
-class Result1(Page):
-    form_model  = "player"
-
-    def vars_for_template(self):
-        # The number of rounds
-        num_rounds = self.participant.vars["beliefs_num_rounds"]
-        # Select a round at random for payment
-        if "beliefs_pay_round" not in self.participant.vars:
-            pay_round = [0]
-            pay_round = random.choice(pay_round)
-            self.participant.vars["beliefs_pay_round"] = pay_round
-        else:
-            pay_round = self.participant.vars["beliefs_pay_round"]
-
-        # The saved choices made by the subject
-        choices_made = self.participant.vars["beliefs_choice"]
-        pay_choices = choices_made[pay_round]
-
-        # The lottery data for this row
-        beldat = self.participant.vars["beliefs_round_data"][pay_round]
-
-        # Not really used anywhere
-        final_payment = {
-                "currency" : beldat["currency"],
-                "amounts": [],
-                "when": [beldat["pay_by"]],
-                "choices": pay_choices,
-                }
-        self.participant.vars["beliefs_final_payment"] = final_payment
-        setattr(self.player, "final_payment", json.dumps(final_payment))
-
-        beliefs_results = {
-                "round_number"    : self.round_number,
-                "number_of_rounds": self.participant.vars["beliefs_num_rounds"],
-                "hex_colors"      : self.session.vars["beliefs_hex_colors"],
-                "beldat"          : beldat,
-                "tokens"          : beldat["tokens"],
-                "currency"        : beldat["currency"],
-                "task_number"     : 6,
-                "pay_round": pay_round + 1,
-                "pay_choices": pay_choices,
-                "final_payment" : final_payment,
-               }
-
-        # Save this data for use in the final results page
-        self.participant.vars["beliefs_results"] = beliefs_results
-
-        return {
-            "beliefs" : beliefs_results,
-        }
-
-    def is_displayed(self):
-        return self.player.rep_1 == "NO"
-
-
-    def app_after_this_page(self, upcoming_apps):
-        if self.player.rep_1 == 'NO':
-            return 'Fase2SF'
-
-class Result2(Page):
-    form_model  = "player"
-
-    def vars_for_template(self):
-        weights = self.participant.vars["weights"]
-        # The number of rounds
-        num_rounds = [0, 1]
-        # Select a round at random for payment
-        if "beliefs_pay_round" not in self.participant.vars:
-            pay_round = choices(num_rounds, weights)
-            self.participant.vars["beliefs_pay_round"] = pay_round
-        else:
-            pay_round = self.participant.vars["beliefs_pay_round"]
-
-        pay_round = pay_round[0]
-
-        prev_player = self.player.in_round(pay_round + 1)
-        self.player.w_amt = (12.5) + \
-                            12.5 * ((2 * prev_player.bin6 / 100) - (1 / 10000) * (
-                prev_player.bin1 ** 2 + prev_player.bin2 ** 2 + prev_player.bin3 ** 2 +
-                prev_player.bin4 ** 2 + prev_player.bin5 ** 2 + prev_player.bin6 ** 2 +
-                prev_player.bin7 ** 2 + prev_player.bin8 ** 2 + prev_player.bin9 ** 2 +
-                prev_player.bin10))
-        w_amt = round(self.player.w_amt, 2)
-
-        # The saved choices made by the subject
-        choices_made = self.participant.vars["beliefs_choice"]
-        pay_choices = choices_made[pay_round]
-
-        # The lottery data for this row
-        beldat = self.participant.vars["beliefs_round_data"][pay_round]
-
-        # Not really used anywhere
-        final_payment = {
-                "currency" : beldat["currency"],
-                "amounts": [],
-                "when": [beldat["pay_by"]],
-                "choices": pay_choices,
-                }
-        self.participant.vars["beliefs_final_payment"] = final_payment
-        setattr(self.player, "final_payment", json.dumps(final_payment))
-
-        beliefs_results = {
-                "round_number"    : self.round_number,
-                "number_of_rounds": self.participant.vars["beliefs_num_rounds"],
-                "hex_colors"      : self.session.vars["beliefs_hex_colors"],
-                "beldat"          : beldat,
-                "tokens"          : beldat["tokens"],
-                "currency"        : beldat["currency"],
-                "task_number"     : 6,
-                "pay_round": pay_round + 1,
-                "pay_choices": pay_choices,
-                "final_payment" : final_payment,
-               }
-
-        # Save this data for use in the final results page
-        self.participant.vars["beliefs_results"] = beliefs_results
-
-        return {
-            "beliefs" : beliefs_results,
-            "w_amt": round(w_amt, 2)
-        }
-
-    def is_displayed(self):
-        return self.player.rep_2 == "NO"
-
-    def before_next_page(self):
-        self.participant.vars["w_amt"] = round(self.player.w_amt, 2)
-
-    def app_after_this_page(self, upcoming_apps):
-        if self.player.rep_2 == 'NO':
-            return 'Fase2SF'
-
-class Results(Page):
+class Page29Farmer3ChoicesResult(Page):
     form_model  = "player"
 
     def vars_for_template(self):
@@ -762,36 +676,32 @@ class Results(Page):
 
 
 page_sequence = [
-    TitlePage,
-    Intro,
-    Instructions2,
-    Instructions2b,
-    Instructions2c,
-    TaskPageExample2,
-    TaskPageExample2b,
-    TaskPageExample3,
-    TaskPageExample3b,
-    QuizPage,
-    TaskPageExample,
-    Instructions3,
-    Instructions4,
-    Instructions5,
-    TaskPageExample4,
-    TaskPageExample5,
-    TaskPageExample5b,
-    TaskPageExample5d,
-    TaskPageExample5c,
-    TaskPageExample5e,
-    TaskPageExample6,
-    TaskPageExample6b,
-    TaskPageExample6c,
-    MyWaitPage,
-    FarmerChoice,
-    Repeat1,
-    FarmerChoices1,
-    Repeat2,
-    FarmerChoices2,
-    FarmerChoices3,
-    Result2,
-    Results
+    Page0,
+    Page1FarmerInfo,
+    Page2Interval,
+    Page3Strumento,
+    Page4Payoff,
+    Page5Esempio1,
+    Page6Esempio1Payoff,
+    Page7Esempio2,
+    Page8Esempio2Payoff,
+    Page9QuizPage,
+    Page10ProvaStrumento,
+    Page11Esperti,
+    Page12Ripetere,
+    Page13Ripetere2,
+    Page14RipEsemp1,
+    Page20RipEsemp3a,
+    Page21RipEsemp3b,
+    Page22RipEsemp3c,
+    Page23MyWaitPage,
+    Page24FarmerChoice,
+    Page25Repeat1,
+    Page26Farmer1ChoiceResult,
+    Page27Repeat2,
+    Page28Farmer2ChoicesUrna,
+    Page29Farmer2ChoicesResult,
+    Page28Farmer3ChoicesUrna,
+    Page29Farmer3ChoicesResult
 ]
+

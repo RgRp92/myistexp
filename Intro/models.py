@@ -23,8 +23,15 @@ class Constants(BaseConstants):
     players_per_group = None
     app_name = 'Intro'
 
+
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        num_participant = self.session.num_participants
+        if num_participant <= 10:
+            num_winners = 1
+        else:  num_winners = int(0.1*num_participant)
+
+        self.session.vars["n_winners"] = num_winners
 
 
 class Group(BaseGroup):

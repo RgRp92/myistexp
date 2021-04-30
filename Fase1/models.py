@@ -31,11 +31,11 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    quiz = models.CharField(choices=[['0', '6.16'],['2', '20.16'],['1','17.16']],
+    quiz = models.CharField(choices=[['0', '12.28'],['2', '9.78'],['1','16.53']],
                                widget= widgets.RadioSelectHorizontal,
                                label='1. In base alla figura mostrata quale sarà il vostro guadagno se il reddito varierà del + 2%',
                               blank=True,default = "")
-    quiz2 = models.CharField(choices=[['1', '6.16'], ['0', '20.16'], ['2', '17.16']],
+    quiz2 = models.CharField(choices=[['0', '19.03'], ['1', '9.78'], ['2', '10.78']],
                                widget=widgets.RadioSelectHorizontal,
                                label='2.In base alla figura mostrata quale sarà il vostro guadagno se il reddito varierà del + 20%',
                               blank=True,default = "" )
@@ -55,9 +55,9 @@ class Player(BasePlayer):
     bin9  = models.IntegerField(initial = 0)
     bin10 = models.IntegerField(initial = 0)
 
-    rep_1 = models.CharField(label="", choices=[['SI', 'SI'],['NO','NO']], initial = "")
+    rep_1 = models.CharField(label="", choices=[['RIPETERE', '1'],['NO','0']], initial = "")
 
-    rep_2 = models.CharField(label="", choices=[['SI', 'SI'],['NO', 'NO']], initial = "")
+    rep_2 = models.CharField(label="", choices=[['RIPETERE', '1'],['NO', '0']], initial = "")
 
     pref1 = models.IntegerField(default = 0, min=0, max=100, initial=0, label="")
     pref2 = models.IntegerField(default = 0, min=0, max=100, initial=0, label="")

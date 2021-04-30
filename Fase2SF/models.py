@@ -20,13 +20,24 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     # these are the lottery payoffs, f1 and f2 refer to lottery A and f3 and f4 to lottery B
-    ist  =[500,450,400,350,300,250,200,150,100,80]
-    var1 = 0.2
-    var2 = 0.1
-    var3 = 0.3
-    var4 = 0.4
-    var5 = 0.5
-    var6 = 0.25
+    ist_s1  =[150,350,480,700,750,850,900]
+    var1a = 0.225
+    var1 = 0.25
+    var11 = 0.22
+    var2 = 0.00
+    var22 = 0.05
+    ist_s2  =[150,300,450,550,600,650,700]
+    var3 = 0.20
+    var33 = 0.21
+    var4 = 0.06
+    var44 = 0.15
+    ist_s3  =[450,500,1600,1800,2000]
+    var5a = 0.5
+    var6a = 0.05
+    var5 = 0.31
+    var55 = 0.35
+    var6 = 0.00
+    var66 = 0.05
     s1_b1 = 3500
     s1_b2 = 6000
     s1_a1_4 = 4400
@@ -51,9 +62,7 @@ class Player(BasePlayer):
     HL_5 = models.IntegerField(choices=[[1, 'A'],[2, 'B']],widget=widgets.RadioSelectHorizontal,initial=0)
     HL_6 = models.IntegerField(choices=[[1, 'A'],[2, 'B']],widget=widgets.RadioSelectHorizontal,initial=0)
     HL_7 = models.IntegerField(choices=[[1, 'A'],[2, 'B']],widget=widgets.RadioSelectHorizontal,initial=0)
-    HL_8 = models.IntegerField(choices=[[1, 'A'],[2, 'B']],widget=widgets.RadioSelectHorizontal,initial=0)
-    HL_9 = models.IntegerField(choices=[[1, 'A'],[2, 'B']],widget=widgets.RadioSelectHorizontal,initial=0)
-    HL_10 = models.IntegerField(choices=[[1, 'A'],[2, 'B']],widget=widgets.RadioSelectHorizontal,initial=0)
+
 
     s2_HL_1 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
     s2_HL_2 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
@@ -62,9 +71,7 @@ class Player(BasePlayer):
     s2_HL_5 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
     s2_HL_6 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
     s2_HL_7 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
-    s2_HL_8 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
-    s2_HL_9 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
-    s2_HL_10 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
+
 
     s3_HL_1 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
     s3_HL_2 = models.IntegerField(choices=[[1, 'A'], [2, 'B']], widget=widgets.RadioSelectHorizontal, initial=0)
@@ -89,16 +96,27 @@ class Player(BasePlayer):
 
         disctot = (insvaluedisc + inspremdisc)
 
-        isttot_1 = (Constants.ist[0] + inspremist + insvalueist)
-        isttot_2 = (Constants.ist[1] + inspremist + insvalueist)
-        isttot_3 = (Constants.ist[2] + inspremist + insvalueist)
-        isttot_4 = (Constants.ist[3] + inspremist + insvalueist)
-        isttot_5 = (Constants.ist[4] + inspremist + insvalueist)
-        isttot_6 = (Constants.ist[5] + inspremist + insvalueist)
-        isttot_7 = (Constants.ist[6] + inspremist + insvalueist)
-        isttot_8 = (Constants.ist[7] + inspremist + insvalueist)
-        isttot_9 = (Constants.ist[8] + inspremist + insvalueist)
-        isttot_10 = (Constants.ist[9] + inspremist + insvalueist)
+        isttot_1 = (Constants.ist_s1[0] + inspremist + insvalueist)
+        isttot_2 = (Constants.ist_s1[1] + inspremist + insvalueist)
+        isttot_3 = (Constants.ist_s1[2] + inspremist + insvalueist)
+        isttot_4 = (Constants.ist_s1[3] + inspremist + insvalueist)
+        isttot_5 = (Constants.ist_s1[4] + inspremist + insvalueist)
+        isttot_6 = (Constants.ist_s1[5] + inspremist + insvalueist)
+        isttot_7 = (Constants.ist_s1[6] + inspremist + insvalueist)
+
+        isttot_8 = (Constants.ist_s2[0] + inspremist + insvalueist)
+        isttot_9 = (Constants.ist_s2[1] + inspremist + insvalueist)
+        isttot_10 = (Constants.ist_s2[2] + inspremist + insvalueist)
+        isttot_11 = (Constants.ist_s2[3] + inspremist + insvalueist)
+        isttot_12 = (Constants.ist_s2[4] + inspremist + insvalueist)
+        isttot_13 = (Constants.ist_s2[5] + inspremist + insvalueist)
+        isttot_14 = (Constants.ist_s2[6] + inspremist + insvalueist)
+
+        isttot_15 = (Constants.ist_s3[0] + inspremist + insvalueist)
+        isttot_16 = (Constants.ist_s3[1] + inspremist + insvalueist)
+        isttot_17 = (Constants.ist_s3[2] + inspremist + insvalueist)
+        isttot_18 = (Constants.ist_s3[3] + inspremist + insvalueist)
+        isttot_19 = (Constants.ist_s3[4] + inspremist + insvalueist)
 
         farmercost_1 = (isttot_1 - disctot)
         farmercost_2 = (isttot_2 - disctot)
@@ -110,11 +128,21 @@ class Player(BasePlayer):
         farmercost_8 = (isttot_8 - disctot)
         farmercost_9 = (isttot_9 - disctot)
         farmercost_10 = (isttot_10 - disctot)
+        farmercost_11 = (isttot_11 - disctot)
+        farmercost_12 = (isttot_12 - disctot)
+        farmercost_13 = (isttot_13 - disctot)
+        farmercost_14 = (isttot_14 - disctot)
+        farmercost_15 = (isttot_15 - disctot)
+        farmercost_16 = (isttot_16 - disctot)
+        farmercost_17 = (isttot_17 - disctot)
+        farmercost_18 = (isttot_18 - disctot)
+        farmercost_19 = (isttot_19 - disctot)
+
 
         avginc = avginc
 
         ## SERIE 1
-        inc_fut_1_s1 = round((avginc - (Constants.var1 * avginc)), 2)
+        inc_fut_1_s1 = round((avginc - (Constants.var1a * avginc)), 2)
         self.participant.vars['inc_fut_1_s1'] = inc_fut_1_s1
 
         loss1 = round(inc_fut_1_s1 - avginc, 2)
@@ -126,9 +154,7 @@ class Player(BasePlayer):
         inc_fut_ist_s1_a5 = round(inc_fut_1_s1 - farmercost_5 + ((0.7 * -loss1) ), 2)
         inc_fut_ist_s1_a6 = round(inc_fut_1_s1 - farmercost_6 + ((0.7 * -loss1) ), 2)
         inc_fut_ist_s1_a7 = round(inc_fut_1_s1 - farmercost_7 + ((0.7 * -loss1) ), 2)
-        inc_fut_ist_s1_a8 = round(inc_fut_1_s1 - farmercost_8 + ((0.7 * -loss1) ), 2)
-        inc_fut_ist_s1_a9 = round(inc_fut_1_s1 - farmercost_9 + ((0.7 * -loss1) ), 2)
-        inc_fut_ist_s1_a10 = round(inc_fut_1_s1 - farmercost_10 + ((0.7 * -loss1)), 2)
+
 
         self.participant.vars['inc_fut_ist_1_s1'] = [inc_fut_ist_s1_a1,
                                                     inc_fut_ist_s1_a2,
@@ -137,9 +163,7 @@ class Player(BasePlayer):
                                                     inc_fut_ist_s1_a5,
                                                     inc_fut_ist_s1_a6,
                                                     inc_fut_ist_s1_a7,
-                                                    inc_fut_ist_s1_a8,
-                                                    inc_fut_ist_s1_a9,
-                                                    inc_fut_ist_s1_a10]
+                                                    ]
 
         inc_fut_2_s1 = round((avginc + (Constants.var2 * avginc)), 2)
         self.participant.vars['inc_fut_2_s1'] = inc_fut_2_s1
@@ -151,9 +175,7 @@ class Player(BasePlayer):
         inc_fut_ist_s1_b5 = round((inc_fut_2_s1 - farmercost_5),2)
         inc_fut_ist_s1_b6 = round((inc_fut_2_s1 - farmercost_6),2)
         inc_fut_ist_s1_b7 = round((inc_fut_2_s1 - farmercost_7),2)
-        inc_fut_ist_s1_b8 = round((inc_fut_2_s1 - farmercost_8),2)
-        inc_fut_ist_s1_b9 = round((inc_fut_2_s1 - farmercost_9),2)
-        inc_fut_ist_s1_b10 = round((inc_fut_2_s1 - farmercost_10),2)
+
 
         self.participant.vars['inc_fut_ist_2_s1'] = [inc_fut_ist_s1_b1,
                                                   inc_fut_ist_s1_b2,
@@ -162,9 +184,6 @@ class Player(BasePlayer):
                                                   inc_fut_ist_s1_b5,
                                                   inc_fut_ist_s1_b6,
                                                   inc_fut_ist_s1_b7,
-                                                  inc_fut_ist_s1_b8,
-                                                  inc_fut_ist_s1_b9,
-                                                  inc_fut_ist_s1_b10
                                                   ]
 
 
@@ -174,16 +193,14 @@ class Player(BasePlayer):
 
         loss2 = round(inc_fut_1_s2 - avginc, 2)
 
-        inc_fut_ist_s2_a1 = round(inc_fut_1_s2 - farmercost_1 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a2 = round(inc_fut_1_s2 - farmercost_2 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a3 = round(inc_fut_1_s2 - farmercost_3 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a4 = round(inc_fut_1_s2 - farmercost_4 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a5 = round(inc_fut_1_s2 - farmercost_5 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a6 = round(inc_fut_1_s2 - farmercost_6 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a7 = round(inc_fut_1_s2 - farmercost_7 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a8 = round(inc_fut_1_s2 - farmercost_8 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a9 = round(inc_fut_1_s2 - farmercost_9 + ((0.7 * -loss2)), 2)
-        inc_fut_ist_s2_a10 = round(inc_fut_1_s2 - farmercost_10 + ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a1 = round(inc_fut_1_s2 - farmercost_8+ ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a2 = round(inc_fut_1_s2 - farmercost_9 + ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a3 = round(inc_fut_1_s2 - farmercost_10 + ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a4 = round(inc_fut_1_s2 - farmercost_11 + ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a5 = round(inc_fut_1_s2 - farmercost_12 + ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a6 = round(inc_fut_1_s2 - farmercost_13 + ((0.7 * -loss2)), 2)
+        inc_fut_ist_s2_a7 = round(inc_fut_1_s2 - farmercost_14 + ((0.7 * -loss2)), 2)
+
 
         self.participant.vars['inc_fut_ist_1_s2'] = [inc_fut_ist_s2_a1,
                                                     inc_fut_ist_s2_a2,
@@ -192,23 +209,19 @@ class Player(BasePlayer):
                                                     inc_fut_ist_s2_a5,
                                                     inc_fut_ist_s2_a6,
                                                     inc_fut_ist_s2_a7,
-                                                    inc_fut_ist_s2_a8,
-                                                    inc_fut_ist_s2_a9,
-                                                    inc_fut_ist_s2_a10]
+                                                    ]
 
-        inc_fut_2_s2 = round((avginc + (Constants.var4 * avginc)), 2)
+        inc_fut_2_s2 = round((avginc + (Constants.var44 * avginc)), 2)
         self.participant.vars['inc_fut_2_s2'] = inc_fut_2_s2
 
-        inc_fut_ist_s2_b1 = round((inc_fut_2_s2 - farmercost_1),2)
-        inc_fut_ist_s2_b2 = round((inc_fut_2_s2 - farmercost_2),2)
-        inc_fut_ist_s2_b3 = round((inc_fut_2_s2 - farmercost_3),2)
-        inc_fut_ist_s2_b4 = round((inc_fut_2_s2 - farmercost_4),2)
-        inc_fut_ist_s2_b5 = round((inc_fut_2_s2 - farmercost_5),2)
-        inc_fut_ist_s2_b6 = round((inc_fut_2_s2 - farmercost_6),2)
-        inc_fut_ist_s2_b7 = round((inc_fut_2_s2 - farmercost_7),2)
-        inc_fut_ist_s2_b8 = round((inc_fut_2_s2 - farmercost_8),2)
-        inc_fut_ist_s2_b9 = round((inc_fut_2_s2 - farmercost_9),2)
-        inc_fut_ist_s2_b10 = round((inc_fut_2_s2 - farmercost_10),2)
+        inc_fut_ist_s2_b1 = round((inc_fut_2_s2 - farmercost_8),2)
+        inc_fut_ist_s2_b2 = round((inc_fut_2_s2 - farmercost_9),2)
+        inc_fut_ist_s2_b3 = round((inc_fut_2_s2 - farmercost_10),2)
+        inc_fut_ist_s2_b4 = round((inc_fut_2_s2 - farmercost_11),2)
+        inc_fut_ist_s2_b5 = round((inc_fut_2_s2 - farmercost_12),2)
+        inc_fut_ist_s2_b6 = round((inc_fut_2_s2 - farmercost_13),2)
+        inc_fut_ist_s2_b7 = round((inc_fut_2_s2 - farmercost_14),2)
+
 
         self.participant.vars['inc_fut_ist_2_s2'] = [inc_fut_ist_s2_b1,
                                                   inc_fut_ist_s2_b2,
@@ -217,22 +230,20 @@ class Player(BasePlayer):
                                                   inc_fut_ist_s2_b5,
                                                   inc_fut_ist_s2_b6,
                                                   inc_fut_ist_s2_b7,
-                                                  inc_fut_ist_s2_b8,
-                                                  inc_fut_ist_s2_b9,
-                                                  inc_fut_ist_s2_b10
+
                                                   ]
 
         ## SERIE 3
-        inc_fut_1_s3 = round((avginc - (Constants.var5 * avginc)), 2)
+        inc_fut_1_s3 = round((avginc - (Constants.var5a * avginc)), 2)
         self.participant.vars['inc_fut_1_s3'] = inc_fut_1_s3
 
         loss3 = round(inc_fut_1_s3 - avginc, 2)
 
-        inc_fut_ist_s3_a1 = round(inc_fut_1_s3 - farmercost_1 + ((0.7 * -loss3)), 2)
-        inc_fut_ist_s3_a2 = round(inc_fut_1_s3 - farmercost_2 + ((0.7 * -loss3)), 2)
-        inc_fut_ist_s3_a3 = round(inc_fut_1_s3 - farmercost_3 + ((0.7 * -loss3)), 2)
-        inc_fut_ist_s3_a4 = round(inc_fut_1_s3 - farmercost_4 + ((0.7 * -loss3)), 2)
-        inc_fut_ist_s3_a5 = round(inc_fut_1_s3 - farmercost_5 + ((0.7 * -loss3)), 2)
+        inc_fut_ist_s3_a1 = round(inc_fut_1_s3 - farmercost_15 + ((0.7 * -loss3)), 2)
+        inc_fut_ist_s3_a2 = round(inc_fut_1_s3 - farmercost_16 + ((0.7 * -loss3)), 2)
+        inc_fut_ist_s3_a3 = round(inc_fut_1_s3 - farmercost_17 + ((0.7 * -loss3)), 2)
+        inc_fut_ist_s3_a4 = round(inc_fut_1_s3 - farmercost_18 + ((0.7 * -loss3)), 2)
+        inc_fut_ist_s3_a5 = round(inc_fut_1_s3 - farmercost_19 + ((0.7 * -loss3)), 2)
 
         self.participant.vars['inc_fut_ist_1_s3'] = [inc_fut_ist_s3_a1,
                                                     inc_fut_ist_s3_a2,
@@ -241,25 +252,21 @@ class Player(BasePlayer):
                                                     inc_fut_ist_s3_a5]
 
 
-        inc_fut_2_s3 = round((avginc - (Constants.var6 * avginc)), 2)
+
+        inc_fut_2_s3 = round((avginc + (Constants.var6a * avginc)), 2)
         self.participant.vars['inc_fut_2_s3'] = inc_fut_2_s3
 
-        loss4 = round(inc_fut_2_s3 - avginc, 2)
-
-        inc_fut_ist_s3_b1 = round(inc_fut_2_s3 - farmercost_1+((0.7 * -loss4)),2)
-        inc_fut_ist_s3_b2 = round(inc_fut_2_s3 - farmercost_2+((0.7 * -loss4)),2)
-        inc_fut_ist_s3_b3 = round(inc_fut_2_s3 - farmercost_3+((0.7 * -loss4)),2)
-        inc_fut_ist_s3_b4 = round(inc_fut_2_s3 - farmercost_4+((0.7 * -loss4)),2)
-        inc_fut_ist_s3_b5 = round(inc_fut_2_s3 - farmercost_5+((0.7 * -loss4)),2)
-
+        inc_fut_ist_s3_b1 = round(inc_fut_2_s3 - farmercost_15, 2)
+        inc_fut_ist_s3_b2 = round(inc_fut_2_s3 - farmercost_16, 2)
+        inc_fut_ist_s3_b3 = round(inc_fut_2_s3 - farmercost_17, 2)
+        inc_fut_ist_s3_b4 = round(inc_fut_2_s3 - farmercost_18, 2)
+        inc_fut_ist_s3_b5 = round(inc_fut_2_s3 - farmercost_19, 2)
 
         self.participant.vars['inc_fut_ist_2_s3'] = [inc_fut_ist_s3_b1,
-                                                  inc_fut_ist_s3_b2,
-                                                  inc_fut_ist_s3_b3,
-                                                  inc_fut_ist_s3_b4,
-                                                  inc_fut_ist_s3_b5,
-                                                  ]
-
+                                                    inc_fut_ist_s3_b2,
+                                                    inc_fut_ist_s3_b3,
+                                                    inc_fut_ist_s3_b4,
+                                                    inc_fut_ist_s3_b5]
 
     # Define here the methods associated to Players
     # this method is needed to compute payoffs
@@ -269,12 +276,14 @@ class Player(BasePlayer):
         # *******************************************
         self.participant.vars['HL_series'] = random.randint(1, 3)
         #
-        self.participant.vars['HL_row'] = random.randint(1, 10)
+        self.participant.vars['HL_row'] = random.randint(1, 7)
         self.participant.vars['HL_row_3'] = random.randint(1, 5)
 
         # select one row randomly for payment (from module random)
-        self.participant.vars['HL_random'] = random.randint(1, 10)
+        self.participant.vars['HL_random'] = random.randint(1, 7)
         self.participant.vars['HL_random_3'] = random.randint(1, 5)
+        self.participant.vars['HL_scenario'] = random.randint(1,100)
+
         #*******************************************
         # select choices in correspondence to random row
         #*******************************************
@@ -285,9 +294,7 @@ class Player(BasePlayer):
                       self.HL_5,
                       self.HL_6,
                       self.HL_7,
-                      self.HL_8,
-                      self.HL_9,
-                      self.HL_10]
+                      ]
 
         choices_s2 = [self.s2_HL_1,
                       self.s2_HL_2,
@@ -296,9 +303,7 @@ class Player(BasePlayer):
                       self.s2_HL_5,
                       self.s2_HL_6,
                       self.s2_HL_7,
-                      self.s2_HL_8,
-                      self.s2_HL_9,
-                      self.s2_HL_10]
+                      ]
 
         choices_s3 = [self.s3_HL_1,
                       self.s3_HL_2,
@@ -314,7 +319,7 @@ class Player(BasePlayer):
         # Compute here the payoffs
         #*******************************************
         if self.participant.vars['HL_series'] == 1:
-            if self.participant.vars['HL_random'] <= self.participant.vars['HL_row']:
+            if self.participant.vars['HL_scenario'] <= 20:
             # if the random number is smaller equal than the random row
                 if self.participant.vars['HL_choice_s1'] == 1: #A
                 # if the choice was A
@@ -331,7 +336,7 @@ class Player(BasePlayer):
                 else:
                     self.participant.vars['payoff_HL'] = self.participant.vars['inc_fut_2_s1']
         elif self.participant.vars['HL_series'] == 2:
-            if self.participant.vars['HL_random'] <= self.participant.vars['HL_row']:
+            if self.participant.vars['HL_scenario'] <= 20:
             # if the random number is smaller equal than the random row
                 if self.participant.vars['HL_choice_s2'] == 1: #A
                 # if the choice was A
@@ -348,7 +353,7 @@ class Player(BasePlayer):
                 else:
                     self.participant.vars['payoff_HL'] = self.participant.vars['inc_fut_2_s2']
         else:
-            if self.participant.vars['HL_random_3'] <= self.participant.vars['HL_row_3']:
+            if self.participant.vars['HL_scenario'] <= 10:
             # if the random number is smaller equal than the random row
                 if self.participant.vars['HL_choice_s3'] == 1: #A
                 # if the choice was A
