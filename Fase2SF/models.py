@@ -38,10 +38,10 @@ class Constants(BaseConstants):
     var55 = 0.35
     var6 = 0.00
     var66 = 0.05
-    s1_b1 = 3500
-    s1_b2 = 6000
-    s1_a1_4 = 4400
-    s1_a2_4 = 5500
+    s1_b1 = 18080.46
+    s1_b2 = 23329.63
+    s1_a1_4 = 20943.67
+    s1_a2_4 = 22518.42
 
 
 class Group(BaseGroup):

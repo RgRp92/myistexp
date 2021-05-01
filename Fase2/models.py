@@ -21,10 +21,10 @@ class Constants(BaseConstants):
     num_rounds = 1
     # these are the lottery payoffs, f1 and f2 refer to lottery A and f3 and f4 to lottery B
     ##SERIE_1
-    aex =4400
-    aaex=5200
-    bex=3500
-    bbex=6000
+    aex = 20943.67
+    aaex=22518.42
+    bex=18080.46
+    bbex=23329.63
     ist_s1  =[150,350,480,700,750,850,900]
     var1 = 0.25
     var11 = 0.22
