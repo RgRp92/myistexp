@@ -158,30 +158,30 @@ class Player(BasePlayer):
 
     q17 = models.StringField(
         choices=[['1','50 €/ettaro'],['2','100 €/ettaro'],['3','150 €/ettaro'],['4','200 €/ettaro'],['5','250 €/ettaro']],
-        label= '17. Se dovesse scegliere quanti €/ettaro pagare come quota fissa per aderire alla copertura '
-               'mutualistica del Fondo IST mele quale preferirebbe?',
+        label= '17. Quanti €/ettaro preferisce pagare come quota fissa per aderire alla copertura '
+               'mutualistica del Fondo IST mele?',
         widget=widgets.RadioSelect)
 
     q18 = models.StringField(
         choices=[['1', '10%'], ['2', '15%'],['3', '20%'],['4', '25%'],['5', '30%']],
-        label='18. Se dovesse scegliere una soglia di reddito per il Fondo IST mele quale preferirebbe?',
+        label='18. Quale soglia di reddito per il Fondo IST mele preferisce tra queste?',
         widget=widgets.RadioSelect)
 
     q19 = models.StringField(
         choices=[['1', 'Fino al 60%'], ['2', 'Fino al 65%'],['3', 'Fino al 70%'],['4', 'Fino al 75%'],['5', 'Fino al 80%']],
-        label='19. Se dovesse scegliere una percentuale di compensazione dal Fondo IST Mele quale preferirebbe?',
+        label='19. Quale percentuale di compensazione dal Fondo IST Mele preferisce tra queste?',
         widget=widgets.RadioSelect)
 
     q20 = models.StringField(
         choices=[['1', 'Su base triennale'], ['2', 'Su base quinquennale']],
-        label='20. Preferirebbe che il reddito medio sia calcolato:',
+        label='20. Preferisce che il reddito medio venga calcolato:',
         widget=widgets.RadioSelect )
 
     q21 = models.StringField(
         choices=[['1', 'Dipendando dal Trigger Event'],
                  ['2','Non dipendano dal Trigger Event'],
                  ['3', 'Non saprei']],
-        label='21. Preferirebbe che le richieste di risarcimento al Fondo IST Mele:',
+        label='21. Preferisce che le richieste di risarcimento al Fondo IST Mele:',
         widget=widgets.RadioSelect )
 
     qc1 = models.StringField(
