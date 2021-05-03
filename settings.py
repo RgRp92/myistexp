@@ -13,67 +13,7 @@ SESSION_CONFIGS = [
         display_name="TestSF",
         num_demo_participants=2,
         app_sequence=['Intro','Fase1SF', 'Fase2SF','Fase3','Fase4', 'FinalPaymentSF']
-     ),
-    dict(
-        name='Fase1',
-        display_name="Fase1",
-        num_demo_participants=1,
-        app_sequence=['Fase1', 'Fase2','Fase3', 'FinalPayment']
-     ),
-     dict(
-        name='Fase1SF',
-        display_name="Fase1SF",
-        num_demo_participants=1,
-        app_sequence=['Fase1SF', 'Fase2SF','Fase3SF','FinalPaymentSF']
-     ),
-    dict(
-        name='Fase2',
-        display_name="Fase2",
-        num_demo_participants=1,
-        app_sequence=['Fase2','FinalPayment']
-     ),
-    dict(
-        name='Fase2SF',
-        display_name="Fase2SF",
-        num_demo_participants=1,
-        app_sequence=['Fase2SF']
-     ),
-    dict(
-        name='Fase3',
-        display_name="Fase3",
-        num_demo_participants=1,
-        app_sequence=['Fase3','FinalPayment']
-     ),
-    dict(
-        name='Fase3SF',
-        display_name="Fase3SF",
-        num_demo_participants=1,
-        app_sequence=['Fase3SF']
-     ),
-    dict(
-        name='Fase4',
-        display_name="Fase4",
-        num_demo_participants=1,
-        app_sequence=['Fase4']
-     ),
-    dict(
-        name='Intro',
-        display_name="Intro",
-        num_demo_participants=30,
-        app_sequence=['Intro']
-     ),
-    dict(
-        name='FinalPayment',
-        display_name="FinalPayment",
-        num_demo_participants=30,
-        app_sequence=['FinalPayment']
-     ),
-    dict(
-        name='FinalPaymentSF',
-        display_name="FinalPaymentSF",
-        num_demo_participants=30,
-        app_sequence=['FinalPaymentSF']
-     ),
+     )
 
 ]
 
