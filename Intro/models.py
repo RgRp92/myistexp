@@ -39,7 +39,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    OP = models.CharField( choices=[['1', 'Melinda'], ['2', 'La Trentina'], ['3','Nessuna delle due']],
-        label='A quale delle seguenti OP appartiene?',
-        widget=widgets.RadioSelect,
-    )
+   pass

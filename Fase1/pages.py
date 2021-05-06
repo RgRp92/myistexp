@@ -56,7 +56,7 @@ class Page1FarmerInfo(Page):
         set_beliefs_data(self)
 
     def is_displayed(self):
-        return self.participant.vars["OP"] == '1' and self.round_number == 1
+        return self.round_number == 1
 
 class Page2Interval(Page):
     def vars_for_template(self):

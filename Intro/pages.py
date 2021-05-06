@@ -14,12 +14,5 @@ class Page3(Page):
             "n_winners": self.session.vars['n_winners']
         }
 
-class Page4(Page):
-    form_model = 'player'
-    form_fields = ['OP']
 
-
-    def before_next_page(self):
-        self.participant.vars["OP"] = self.player.OP
-
-page_sequence = [Page0, Page1, Page2, Page3,Page4]
+page_sequence = [Page0, Page1, Page2, Page3]
