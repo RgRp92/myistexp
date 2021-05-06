@@ -374,6 +374,9 @@ class OutcomeHL(Page):
             self.participant.vars['rrow'] = [self.participant.vars['rHL_row_3'] - 1]
 
 
+    def app_after_this_page(self, upcoming_apps):
+            return 'Fase4'
+
 
 # the coreography of pages
 page_sequence = [

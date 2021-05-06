@@ -18,10 +18,10 @@ Introduction to the experiment
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Intro'
+    name_in_url = 'IntroSF'
     num_rounds = 1
     players_per_group = None
-    app_name = 'Intro'
+    app_name = 'IntroSF'
 
 
 class Subsession(BaseSubsession):
@@ -39,7 +39,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    OP = models.CharField( choices=[['1', 'Melinda'], ['2', 'La Trentina'], ['3','Nessuna delle due']],
-        label='A quale delle seguenti OP appartiene?',
-        widget=widgets.RadioSelect,
-    )
+    pass

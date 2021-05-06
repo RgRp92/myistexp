@@ -371,6 +371,8 @@ class OutcomeHL(Page):
             self.participant.vars['b11_value'] = Constants.s3_b1
             self.participant.vars['b12_value'] = Constants.s3_b2
 
+    def app_after_this_page(self, upcoming_apps):
+            return 'Fase3'
 
 page_sequence = [
     Page0,
